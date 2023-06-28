@@ -1,21 +1,32 @@
 import React from "react";
 // import './BoardPicker.css';
-import Board from './Board';
 // import PropTypes from 'prop-types';
 
-// When we display JSX each element will need an event handler to display the board.
-const BoardPicker = ({boardsData, selectedBoard}) => {
-    const boardComponents = boardsData.map((board) => {
+
+const BoardPicker = ({boardsData, onBoardSelect}) => {
+    const boardComponents = boardsData.map((board, i) => {
+        const handleBoardSelect = () => {
+            onBoardSelect( {
+                boardId: board.boardId,
+                title: board.title,
+                owner: board.owner
+            });
+        };
+
         return (
-            <li>
+            <li key={i} onClick={handleBoardSelect}>
                 {board.title}
             </li>
         );
     });
+
     return (
-        <section className = 'board-list'>
-            {boardComponents}
-        </section>
+        <div>
+            <h1>Boards</h1>
+            <section className = 'board-list'>
+                {boardComponents}
+            </section>
+        </div>
     );
 };
 

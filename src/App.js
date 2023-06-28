@@ -1,21 +1,23 @@
 import './App.css';
 import React from 'react';
 import { useState } from 'react';
+import BoardPicker from './components/BoardPicker';
+import SelectedBoard from './components/SelectedBoard'
 
 const DATA = 
   [
     {
-        "board_id": 1,
+        "boardId": 1,
         "title": "Parrots",
         "owner": "Whitney",
     },
     {
-      "board_id": 2,
+      "boardId": 2,
       "title": "Cats",
       "owner": "Valerie",
     },
     {
-      "board_id": 3,
+      "boardId": 3,
       "title": "Dogs",
       "owner": "Adrian",
     }
@@ -24,18 +26,21 @@ const DATA =
 function App() {
 
   const [boardsData, setBoardsData] = useState(DATA);
-  const [selectedBoard, setSelectedBoard] = useState({boardId: null, title: "none selected", owner: "none selected"});
+  const [selectedBoard, setSelectedBoard] = useState({"boardId": 0, "title": "Hi", "owner": "Kelsey"});
   const [isBoardFormVisible, setIsBoardFormVisible] = useState(false);
 
   
+  const onBoardSelect = (boardSelected) => {
+    setSelectedBoard(boardSelected);
+  };
 
   return (
     <div className="App">
       <header>
       </header>
       <main>
-        <body>
-        </body>
+      <BoardPicker boardsData={boardsData} onBoardSelect={onBoardSelect}/>
+      <SelectedBoard selectedBoard={selectedBoard}/>
       </main>
     </div>
   );
