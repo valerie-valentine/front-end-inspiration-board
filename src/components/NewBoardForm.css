@@ -1,0 +1,8 @@
+
+.visibility-button.visible {
+    visibility: visible;
+}
+
+.visibility-button.hidden {
+    visibility: hidden;
+}

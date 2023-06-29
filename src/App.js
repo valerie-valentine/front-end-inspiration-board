@@ -30,7 +30,6 @@ function App() {
     title: "",
     owner: "",
   });
-  const [isBoardFormVisible, setIsBoardFormVisible] = useState(false);
 
   const onBoardSelect = (boardSelected) => {
     setSelectedBoard(boardSelected);
@@ -46,10 +45,7 @@ function App() {
       <main>
         <BoardPicker boardsData={boardsData} onBoardSelect={onBoardSelect} />
         <SelectedBoard selectedBoard={selectedBoard} />
-        <NewBoardForm
-          setIsBoardFormVisible={setIsBoardFormVisible}
-          createNewBoard={createNewBoard}
-        />
+        <NewBoardForm createNewBoard={createNewBoard} />
       </main>
     </div>
   );
