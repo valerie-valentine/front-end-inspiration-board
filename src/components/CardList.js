@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
-const CardList = ({ selectedBoard }) => {
+const CardList = ({ selectedBoard, onUpdateLikes }) => {
   return (
     <div>
       <h2>Cards for {selectedBoard.title}</h2>
@@ -13,6 +13,7 @@ const CardList = ({ selectedBoard }) => {
               id={card.id}
               likeCount={card.likeCount}
               message={card.message}
+              onUpdateLikes={onUpdateLikes}
             />
           );
         })}

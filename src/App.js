@@ -62,6 +62,28 @@ function App() {
     setBoardsData((boardsData) => [newBoard, ...boardsData]);
   };
 
+  // console.log(boardsData[1]["cards"][0]["id"]);
+
+  // const onUpdateLikes = (id) => {
+  //   const boards = boardsData.map((board) => {
+  //     if (board.cards.id === id) {
+  //       return (board.cards.likeCount += 1);
+  //     }
+  //     return board;
+  //   });
+  //   setBoardsData(boards);
+  // };
+
+  const onUpdateLikes = (id) => {
+    const boards = boardsData.map((board) => {
+      if (board.cards[0].id === id) {
+        return (board.cards[0].likeCount += 1);
+      }
+      return board;
+    });
+    setBoardsData(boards);
+  };
+
   return (
     <div className="App">
       <header></header>
@@ -69,7 +91,7 @@ function App() {
         <BoardPicker boardsData={boardsData} onBoardSelect={onBoardSelect} />
         <SelectedBoard selectedBoard={selectedBoard} />
         <NewBoardForm createNewBoard={createNewBoard} />
-        <Cardlist selectedBoard={selectedBoard} />
+        <Cardlist selectedBoard={selectedBoard} onUpdateLikes={onUpdateLikes} />
       </main>
     </div>
   );
