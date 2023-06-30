@@ -47,20 +47,38 @@ const DATA = [
 
 function App() {
   const [boardsData, setBoardsData] = useState(DATA);
-  const [selectedBoard, setSelectedBoard] = useState({
-    boardId: 0,
-    title: "",
-    owner: "",
-    cards: [],
-  });
+  const [selectedBoardId, setSelectedBoardId] = useState(DATA[0].boardId);
 
   const onBoardSelect = (boardSelected) => {
-    setSelectedBoard(boardSelected);
+    setSelectedBoardId(boardSelected.boardId);
   };
 
   const createNewBoard = (newBoard) => {
     setBoardsData((boardsData) => [newBoard, ...boardsData]);
   };
+
+  const getSelectedBoard = (id) => {
+    const selectedBoard = boardsData.filter((board) => board.boardId === id);
+    return selectedBoard[0];
+  };
+
+  const onUpdateLikes = (id) => {
+    const boards = boardsData.map((board) => {
+      if (board.boardId === selectedBoardId) {
+        board.cards = board.cards.map((card) => {
+          if (card.id === id) {
+            return { ...card, likeCount: (card.likeCount += 1) };
+          }
+          return card;
+        });
+        //If not working return a copy of boards data w/ updated board
+      }
+      return board;
+    });
+    setBoardsData(boards);
+  };
+
+  const selectedBoard = getSelectedBoard(selectedBoardId);
 
   return (
     <div className="App">
@@ -69,7 +87,7 @@ function App() {
         <BoardPicker boardsData={boardsData} onBoardSelect={onBoardSelect} />
         <SelectedBoard selectedBoard={selectedBoard} />
         <NewBoardForm createNewBoard={createNewBoard} />
-        <Cardlist selectedBoard={selectedBoard} />
+        <Cardlist selectedBoard={selectedBoard} onUpdateLikes={onUpdateLikes} />
       </main>
     </div>
   );
