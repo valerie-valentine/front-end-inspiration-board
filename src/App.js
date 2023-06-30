@@ -71,7 +71,6 @@ function App() {
           }
           return card;
         });
-        //If not working return a copy of boards data w/ updated board
       }
       return board;
     });
