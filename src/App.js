@@ -49,11 +49,21 @@ function App() {
   const [boardsData, setBoardsData] = useState(DATA);
   const [selectedBoardId, setSelectedBoardId] = useState(DATA[0].boardId);
 
+
+  // const deleteCard = (id) => {
+  //   setBoardsData(boardsData.filter((card) ))
+  // }
+
+
   const onBoardSelect = (boardSelected) => {
     setSelectedBoardId(boardSelected.boardId);
   };
 
   const createNewBoard = (newBoard) => {
+    setBoardsData((boardsData) => [newBoard, ...boardsData]);
+  };
+
+  const createNewCard = (newCard) => {
     setBoardsData((boardsData) => [newBoard, ...boardsData]);
   };
 
