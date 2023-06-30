@@ -47,42 +47,38 @@ const DATA = [
 
 function App() {
   const [boardsData, setBoardsData] = useState(DATA);
-  const [selectedBoard, setSelectedBoard] = useState({
-    boardId: 0,
-    title: "",
-    owner: "",
-    cards: [],
-  });
+  const [selectedBoardId, setSelectedBoardId] = useState(DATA[0].boardId);
 
   const onBoardSelect = (boardSelected) => {
-    setSelectedBoard(boardSelected);
+    setSelectedBoardId(boardSelected.boardId);
   };
 
   const createNewBoard = (newBoard) => {
     setBoardsData((boardsData) => [newBoard, ...boardsData]);
   };
 
-  // console.log(boardsData[1]["cards"][0]["id"]);
-
-  // const onUpdateLikes = (id) => {
-  //   const boards = boardsData.map((board) => {
-  //     if (board.cards.id === id) {
-  //       return (board.cards.likeCount += 1);
-  //     }
-  //     return board;
-  //   });
-  //   setBoardsData(boards);
-  // };
+  const getSelectedBoard = (id) => {
+    const selectedBoard = boardsData.filter((board) => board.boardId === id);
+    return selectedBoard[0];
+  };
 
   const onUpdateLikes = (id) => {
     const boards = boardsData.map((board) => {
-      if (board.cards[0].id === id) {
-        return (board.cards[0].likeCount += 1);
+      if (board.boardId === selectedBoardId) {
+        board.cards = board.cards.map((card) => {
+          if (card.id === id) {
+            return { ...card, likeCount: (card.likeCount += 1) };
+          }
+          return card;
+        });
+        //If not working return a copy of boards data w/ updated board
       }
       return board;
     });
     setBoardsData(boards);
   };
+
+  const selectedBoard = getSelectedBoard(selectedBoardId);
 
   return (
     <div className="App">
