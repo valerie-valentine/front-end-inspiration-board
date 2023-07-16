@@ -5,6 +5,7 @@ import BoardPicker from "./components/BoardPicker";
 import SelectedBoard from "./components/SelectedBoard";
 import NewBoardForm from "./components/NewBoardForm";
 import Cardlist from "./components/CardList";
+import NewCardForm from "./components/NewCardForm";
 
 const DATA = [
   {
@@ -57,6 +58,24 @@ function App() {
     setBoardsData((boardsData) => [newBoard, ...boardsData]);
   };
 
+  const createNewCard = (card) => {
+    const boards = boardsData.map((board) => {
+      if (board.boardId === selectedBoardId) {
+        board.cards.push(card);
+      }
+      return board;
+    });
+    setBoardsData(boards);
+    console.log(boardsData);
+  };
+  //call back function
+  //accept new card + board id
+  // map through boards data - find board with board id
+  // access cards list
+  // append new card
+  // pass to newcard form as prop
+  // call setboards data
+
   const getSelectedBoard = (id) => {
     const selectedBoard = boardsData.filter((board) => board.boardId === id);
     return selectedBoard[0];
@@ -88,6 +107,7 @@ function App() {
         <SelectedBoard selectedBoard={selectedBoard} />
         <NewBoardForm createNewBoard={createNewBoard} />
         <Cardlist selectedBoard={selectedBoard} onUpdateLikes={onUpdateLikes} />
+        <NewCardForm createNewCard={createNewCard} />
       </main>
     </div>
   );
