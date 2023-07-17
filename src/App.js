@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import BoardPicker from "./components/BoardPicker";
 import SelectedBoard from "./components/SelectedBoard";
 import NewBoardForm from "./components/NewBoardForm";
@@ -9,53 +9,40 @@ import NewCardForm from "./components/NewCardForm";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
+import axios from "axios";
 
-const DATA = [
-  {
-    boardId: 1,
-    title: "Parrots",
-    owner: "Whitney",
-    cards: [
-      {
-        id: 1,
-        likeCount: 0,
-        message: "Hello!",
-      },
-    ],
-  },
-  {
-    boardId: 2,
-    title: "Cats",
-    owner: "Valerie",
-    cards: [
-      {
-        id: 2,
-        likeCount: 5,
-        message: "Meow Meow Meow",
-      },
-    ],
-  },
-  {
-    boardId: 3,
-    title: "Dogs",
-    owner: "Adrian",
-    cards: [
-      {
-        id: 3,
-        likeCount: 1,
-        message: "Woof Woof!",
-      },
-    ],
-  },
-];
+const kBaseUrl = "http://localhost:5000";
+
+const getAllBoards = () => {
+  return axios
+    .get(`${kBaseUrl}/boards`)
+    .then((response) => {
+      return response.data.map(convertFromApi);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+const convertFromApi = (apiBoard) => {
+  const { id: boardId, ...board } = apiBoard;
+  const newBoard = { boardId, ...board };
+  return newBoard;
+};
 
 function App() {
-  const [boardsData, setBoardsData] = useState(DATA);
-  const [selectedBoardId, setSelectedBoardId] = useState(DATA[0].boardId);
+  const [boardsData, setBoardsData] = useState([]);
+  const [selectedBoardId, setSelectedBoardId] = useState(null);
 
-  // const deleteCard = (id) => {
-  //   setBoardsData(boardsData.filter((card) ))
-  // }
+  const fetchBoards = () => {
+    getAllBoards().then((boards) => {
+      setBoardsData(boards);
+    });
+  };
+
+  useEffect(() => {
+    fetchBoards();
+  }, []);
 
   const onBoardSelect = (boardSelected) => {
     setSelectedBoardId(boardSelected.boardId);
@@ -73,7 +60,6 @@ function App() {
       return board;
     });
     setBoardsData(boards);
-    console.log(boardsData);
   };
 
   const getSelectedBoard = (id) => {
@@ -96,6 +82,8 @@ function App() {
     setBoardsData(boards);
   };
 
+  //need to figure out - how to make get selected board run after useffect or what the initial value will be?
+
   const selectedBoard = getSelectedBoard(selectedBoardId);
 
   return (
@@ -108,7 +96,9 @@ function App() {
       </header>
       <main>
         <BoardPicker boardsData={boardsData} onBoardSelect={onBoardSelect} />
-        <SelectedBoard selectedBoard={selectedBoard} />
+        {selectedBoardId != null && (
+          <SelectedBoard selectedBoard={selectedBoard} />
+        )}
         <NewBoardForm createNewBoard={createNewBoard} />
         <Cardlist selectedBoard={selectedBoard} onUpdateLikes={onUpdateLikes} />
         <NewCardForm createNewCard={createNewCard} />
