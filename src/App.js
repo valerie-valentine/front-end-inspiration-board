@@ -11,8 +11,8 @@ import Home from "./components/Home";
 import About from "./components/About";
 import axios from "axios";
 
-// const kBaseUrl = "http://localhost:5000";
-const kBaseUrl = "http://localhost:8000";
+const kBaseUrl = "http://localhost:5000";
+// const kBaseUrl = "http://localhost:8000";
 
 const getAllBoards = () => {
   return axios
@@ -98,13 +98,24 @@ function App() {
       <main>
         <BoardPicker boardsData={boardsData} onBoardSelect={onBoardSelect} />
         <section>
-        {selectedBoardId != null && (
-          <SelectedBoard selectedBoard={selectedBoard} />
-        )}
+          {selectedBoardId != null && (
+            <SelectedBoard selectedBoard={selectedBoard} />
+          )}
         </section>
         <NewBoardForm createNewBoard={createNewBoard} />
-        {/* <Cardlist selectedBoard={selectedBoard} onUpdateLikes={onUpdateLikes} /> */}
-        <NewCardForm createNewCard={createNewCard} />
+        <section>
+          {selectedBoardId != null && (
+            <Cardlist
+              selectedBoard={selectedBoard}
+              onUpdateLikes={onUpdateLikes}
+            />
+          )}
+        </section>
+        <section>
+          {selectedBoardId != null && (
+            <NewCardForm createNewCard={createNewCard} />
+          )}
+        </section>
       </main>
     </div>
   );
