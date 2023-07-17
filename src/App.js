@@ -6,6 +6,9 @@ import SelectedBoard from "./components/SelectedBoard";
 import NewBoardForm from "./components/NewBoardForm";
 import Cardlist from "./components/CardList";
 import NewCardForm from "./components/NewCardForm";
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
 
 const DATA = [
   {
@@ -68,13 +71,6 @@ function App() {
     setBoardsData(boards);
     console.log(boardsData);
   };
-  //call back function
-  //accept new card + board id
-  // map through boards data - find board with board id
-  // access cards list
-  // append new card
-  // pass to newcard form as prop
-  // call setboards data
 
   const getSelectedBoard = (id) => {
     const selectedBoard = boardsData.filter((board) => board.boardId === id);
@@ -90,7 +86,6 @@ function App() {
           }
           return card;
         });
-        //If not working return a copy of boards data w/ updated board
       }
       return board;
     });
@@ -101,7 +96,12 @@ function App() {
 
   return (
     <div className="App">
-      <header></header>
+      <header>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </header>
       <main>
         <BoardPicker boardsData={boardsData} onBoardSelect={onBoardSelect} />
         <SelectedBoard selectedBoard={selectedBoard} />
