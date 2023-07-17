@@ -11,7 +11,8 @@ import Home from "./components/Home";
 import About from "./components/About";
 import axios from "axios";
 
-const kBaseUrl = "http://localhost:5000";
+// const kBaseUrl = "http://localhost:5000";
+const kBaseUrl = "http://localhost:8000";
 
 const getAllBoards = () => {
   return axios
@@ -96,11 +97,13 @@ function App() {
       </header>
       <main>
         <BoardPicker boardsData={boardsData} onBoardSelect={onBoardSelect} />
+        <section>
         {selectedBoardId != null && (
           <SelectedBoard selectedBoard={selectedBoard} />
         )}
+        </section>
         <NewBoardForm createNewBoard={createNewBoard} />
-        <Cardlist selectedBoard={selectedBoard} onUpdateLikes={onUpdateLikes} />
+        {/* <Cardlist selectedBoard={selectedBoard} onUpdateLikes={onUpdateLikes} /> */}
         <NewCardForm createNewCard={createNewCard} />
       </main>
     </div>
