@@ -5,6 +5,10 @@ import BoardPicker from "./components/BoardPicker";
 import SelectedBoard from "./components/SelectedBoard";
 import NewBoardForm from "./components/NewBoardForm";
 import Cardlist from "./components/CardList";
+import NewCardForm from "./components/NewCardForm";
+import { Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
 
 const DATA = [
   {
@@ -49,11 +53,9 @@ function App() {
   const [boardsData, setBoardsData] = useState(DATA);
   const [selectedBoardId, setSelectedBoardId] = useState(DATA[0].boardId);
 
-
   // const deleteCard = (id) => {
   //   setBoardsData(boardsData.filter((card) ))
   // }
-
 
   const onBoardSelect = (boardSelected) => {
     setSelectedBoardId(boardSelected.boardId);
@@ -63,8 +65,15 @@ function App() {
     setBoardsData((boardsData) => [newBoard, ...boardsData]);
   };
 
-  const createNewCard = (newCard) => {
-    setBoardsData((boardsData) => [newBoard, ...boardsData]);
+  const createNewCard = (card) => {
+    const boards = boardsData.map((board) => {
+      if (board.boardId === selectedBoardId) {
+        board.cards.push(card);
+      }
+      return board;
+    });
+    setBoardsData(boards);
+    console.log(boardsData);
   };
 
   const getSelectedBoard = (id) => {
@@ -91,12 +100,18 @@ function App() {
 
   return (
     <div className="App">
-      <header></header>
+      <header>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </header>
       <main>
         <BoardPicker boardsData={boardsData} onBoardSelect={onBoardSelect} />
         <SelectedBoard selectedBoard={selectedBoard} />
         <NewBoardForm createNewBoard={createNewBoard} />
         <Cardlist selectedBoard={selectedBoard} onUpdateLikes={onUpdateLikes} />
+        <NewCardForm createNewCard={createNewCard} />
       </main>
     </div>
   );

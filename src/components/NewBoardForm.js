@@ -26,7 +26,9 @@ const NewBoardForm = ({ createNewBoard }) => {
     const newBoard = {
       title: title,
       owner: owner,
+      cards: [],
     };
+
     createNewBoard(newBoard);
     setTitle("");
     setOwner("");

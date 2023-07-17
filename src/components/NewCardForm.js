@@ -1,86 +1,50 @@
 import React from "react";
 import { useState } from "react";
 
-const NewCardForm = ({ createNewBoard }) => {
-  // const [newBoard, setNewBoard] = useState({"boardId": 0, "title": "", "owner": ""});
-  const [title, setTitle] = useState("");
-  const [owner, setOwner] = useState("");
-  const [isBoardFormVisible, setIsBoardFormVisible] = useState(true);
+const NewCardForm = ({ createNewCard }) => {
+  const [message, setMessage] = useState("");
 
-  const handleTitleChange = (event) => {
-    setTitle(event.target.value);
-  };
-
-  const handleOwnerChange = (event) => {
-    setOwner(event.target.value);
-  };
-
-  const handleVisibilityButton = (event) => {
-    event.preventDefault();
-    setIsBoardFormVisible(!isBoardFormVisible);
+  const handleMessageChange = (event) => {
+    setMessage(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const newBoard = {
-      title: title,
-      owner: owner,
+    const newCard = {
+      message: message,
+      likeCount: 0,
     };
-    createNewBoard(newBoard);
-    setTitle("");
-    setOwner("");
-  };
 
-  // if title.link > 40 -> ClassName (displaying a class dependent on condition - teranary)
+    createNewCard(newCard);
+    setMessage("");
+  };
 
   return (
     <div>
-      <h1>Create New Board</h1>
-      {!isBoardFormVisible && (
-        <button onClick={handleVisibilityButton}>Show Create Board Form</button>
-      )}
-      <form
-        className={`visibility-button ${
-          isBoardFormVisible ? "visible" : "hidden"
-        }`}
-        onSubmit={handleSubmit}
-      >
+      <h1>Create New Card</h1>
+      <form onSubmit={handleSubmit}>
         <section>
+          <label htmlFor="message">Message:</label>
+          <input
+            type="text"
+            id="message"
+            name="message"
+            maxLength={40}
+            onChange={handleMessageChange}
+            value={message}
+            required
+          ></input>
+          {message.length > 39 && <p>Please limit characters to under 40.</p>}
           <div>
-            <label htmlFor="title">Title:</label>
-            <input
-              type="text"
-              maxLength={40}
-              id="title"
-              name="title"
-              onChange={handleTitleChange}
-              value={title}
-              required
-            ></input>
-            {title.length > 39 && <p>Please limit characters to under 40.</p>}
-            <label htmlFor="owner">Owner:</label>
-            <input
-              type="text"
-              maxLength={40}
-              id="owner"
-              name="owner"
-              onChange={handleOwnerChange}
-              value={owner}
-              required
-            ></input>
-            {owner.length > 39 && <p>Please limit characters to under 40.</p>}
-            <div>
-              <p>
-                Preview: {title} - {owner}
-              </p>
-            </div>
-            <input type="submit" value="Add a Board"></input>
+            <p>Preview: {message}</p>
+          </div>
+          <div>
+            <input type="submit" value="Add a Card"></input>
           </div>
         </section>
-        <button onClick={handleVisibilityButton}>Hide Create Board Form</button>
       </form>
     </div>
   );
 };
 
-export default NewBoardForm;
+export default NewCardForm;
