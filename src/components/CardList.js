@@ -11,7 +11,7 @@ const CardList = ({ selectedBoard, onUpdateLikes, selectedCardsData }) => {
             <Card
               key={card.id}
               id={card.id}
-              likeCount={card.likeCount}
+              likesCount={card.likesCount}
               message={card.message}
               onUpdateLikes={onUpdateLikes}
             />

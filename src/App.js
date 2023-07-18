@@ -12,7 +12,6 @@ import About from "./components/About";
 import axios from "axios";
 
 const kBaseUrl = `${process.env.REACT_APP_BACKEND_URL}`;
-// const kBaseUrl = "http://localhost:8000";
 
 const getAllBoards = () => {
   return axios
@@ -41,6 +40,17 @@ const postCardApi = (boardId, data) => {
     .post(`${kBaseUrl}/boards/${boardId}/cards`, data)
     .then((response) => {
       return response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+const updateCardApi = (cardId) => {
+  return axios
+    .patch(`${kBaseUrl}/cards/${cardId}/increase_likes`)
+    .then((response) => {
+      return convertCardFromApi(response.data.card);
     })
     .catch((error) => {
       console.log(error);
@@ -95,10 +105,6 @@ function App() {
       .catch((error) => console.log(error));
   };
 
-  // const createNewBoard = (newBoard) => {
-  //   setBoardsData((boardsData) => [newBoard, ...boardsData]);
-  // };
-
   const createNewCard = (data) => {
     postCardApi(selectedBoardId, data).then((newCard) => {
       setSelectedCardsData((prevCards) => {
@@ -107,35 +113,37 @@ function App() {
     });
   };
 
-  // const createNewCard = (card) => {
-  //   const boards = boardsData.map((board) => {
-  //     if (board.boardId === selectedBoardId) {
-  //       board.cards.push(card);
-  //     }
-  //     return board;
-  //   });
-  //   setBoardsData(boards);
-  // };
-
   const getSelectedBoard = (id) => {
     const selectedBoard = boardsData.filter((board) => board.boardId === id);
     return selectedBoard[0];
   };
 
   const onUpdateLikes = (id) => {
-    const boards = boardsData.map((board) => {
-      if (board.boardId === selectedBoardId) {
-        board.cards = board.cards.map((card) => {
-          if (card.id === id) {
-            return { ...card, likeCount: (card.likeCount += 1) };
-          }
-          return card;
-        });
-      }
-      return board;
+    updateCardApi(id).then((updatedCard) => {
+      const cards = selectedCardsData.map((card) => {
+        if (card.id === id) {
+          return updatedCard;
+        }
+        return card;
+      });
+      setSelectedCardsData(cards);
     });
-    setBoardsData(boards);
   };
+
+  // const onUpdateLikes = (id) => {
+  //   const boards = boardsData.map((board) => {
+  //     if (board.boardId === selectedBoardId) {
+  //       board.cards = board.cards.map((card) => {
+  //         if (card.id === id) {
+  //           return { ...card, likeCount: (card.likeCount += 1) };
+  //         }
+  //         return card;
+  //       });
+  //     }
+  //     return board;
+  //   });
+  //   setBoardsData(boards);
+  // };
 
   const selectedBoard = getSelectedBoard(selectedBoardId);
 
@@ -166,10 +174,7 @@ function App() {
         </section>
         <section>
           {selectedBoardId != null && (
-            <NewCardForm
-              createNewCard={createNewCard}
-              boardId={selectedBoardId}
-            />
+            <NewCardForm createNewCard={createNewCard} />
           )}
         </section>
       </main>

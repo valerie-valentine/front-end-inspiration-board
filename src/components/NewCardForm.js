@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const NewCardForm = ({ createNewCard, boardId }) => {
+const NewCardForm = ({ createNewCard }) => {
   const [message, setMessage] = useState("");
 
   const handleMessageChange = (event) => {
