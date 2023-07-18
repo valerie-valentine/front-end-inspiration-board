@@ -11,7 +11,7 @@ const BoardPicker = ({ boardsData, onBoardSelect }) => {
         {boardsData.map((board, i) => {
           return (
             <Board
-              key={i}
+              key={board.boardId}
               boardId={board.boardId}
               title={board.title}
               owner={board.owner}

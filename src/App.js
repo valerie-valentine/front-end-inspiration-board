@@ -50,12 +50,12 @@ function App() {
   };
 
   const onBoardSubmit = (data) => {
-    axios
+    return axios
       .post(`${kBaseUrl}/boards`, data)
       .then((response) => {
         setBoardsData((prevBoards) => [
-          convertFromApi(response.data),
           ...prevBoards,
+          convertFromApi(response.data.board),
         ]);
       })
       .catch((error) => console.log(error));
