@@ -1,12 +1,12 @@
 import React from "react";
 import Card from "./Card";
 
-const CardList = ({ selectedBoard, onUpdateLikes }) => {
+const CardList = ({ selectedBoard, onUpdateLikes, selectedCardsData }) => {
   return (
     <div>
       <h2>Cards for {selectedBoard.title}</h2>
       <section className="card-list">
-        {selectedBoard.cards.map((card) => {
+        {selectedCardsData.map((card) => {
           return (
             <Card
               key={card.id}

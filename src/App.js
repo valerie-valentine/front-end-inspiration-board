@@ -11,8 +11,8 @@ import Home from "./components/Home";
 import About from "./components/About";
 import axios from "axios";
 
-const kBaseUrl = "http://localhost:5000";
-// const kBaseUrl = "http://localhost:8000";
+// const kBaseUrl = "http://localhost:5000";
+const kBaseUrl = "http://localhost:8000";
 
 const getAllBoards = () => {
   return axios
@@ -25,15 +25,44 @@ const getAllBoards = () => {
     });
 };
 
+const getAllCards = (boardId) => {
+  return axios
+    .get(`${kBaseUrl}/boards/${boardId}/cards`)
+    .then((response) => {
+      return response.data.map(convertCardFromApi);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+// const postCardApi = (boardId) => {
+//   return axios
+//     .post(`${kBaseUrl}/boards/${boardId}/cards`)
+//     .then((response) => {
+//       return response.data;
+//     })
+//     .catch((error) => {
+//       console.log(error)
+//     });
+// };
+
 const convertFromApi = (apiBoard) => {
   const { id: boardId, ...board } = apiBoard;
   const newBoard = { boardId, ...board };
   return newBoard;
 };
 
+const convertCardFromApi = (apiCard) => {
+  const { likes_count: likesCount, ...card } = apiCard;
+  const newCard = { likesCount, ...card }
+  return newCard;
+};
+
 function App() {
   const [boardsData, setBoardsData] = useState([]);
   const [selectedBoardId, setSelectedBoardId] = useState(null);
+  const [selectedCardsData, setSelectedCardsData] = useState([]);
 
   const fetchBoards = () => {
     getAllBoards().then((boards) => {
@@ -47,7 +76,13 @@ function App() {
 
   const onBoardSelect = (boardSelected) => {
     setSelectedBoardId(boardSelected);
+    getAllCards(boardSelected) //Check on using boardsSelected v. selectedBoardId
+      .then((cards) => {
+        setSelectedCardsData(cards);
+      });
+    // get request to grab all cards for a board
   };
+
 
   const onBoardSubmit = (data) => {
     return axios
@@ -65,15 +100,24 @@ function App() {
   //   setBoardsData((boardsData) => [newBoard, ...boardsData]);
   // };
 
-  const createNewCard = (card) => {
-    const boards = boardsData.map((board) => {
-      if (board.boardId === selectedBoardId) {
-        board.cards.push(card);
-      }
-      return board;
-    });
-    setBoardsData(boards);
-  };
+  // const createNewCard = (data) => {
+  //   postCardApi(data)
+  //     .then ((newCard) => {
+  //       setCardsData((prevCards) => {
+  //         return prevCards
+  //       })
+  //     })
+  // }
+
+  // const createNewCard = (card) => {
+  //   const boards = boardsData.map((board) => {
+  //     if (board.boardId === selectedBoardId) {
+  //       board.cards.push(card);
+  //     }
+  //     return board;
+  //   });
+  //   setBoardsData(boards);
+  // };
 
   const getSelectedBoard = (id) => {
     const selectedBoard = boardsData.filter((board) => board.boardId === id);
@@ -120,14 +164,15 @@ function App() {
             <Cardlist
               selectedBoard={selectedBoard}
               onUpdateLikes={onUpdateLikes}
+              selectedCardsData={selectedCardsData}
             />
           )}
         </section>
-        <section>
+        {/* <section>
           {selectedBoardId != null && (
             <NewCardForm createNewCard={createNewCard} />
           )}
-        </section>
+        </section> */}
       </main>
     </div>
   );
