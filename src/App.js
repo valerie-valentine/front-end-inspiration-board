@@ -11,8 +11,8 @@ import Home from "./components/Home";
 import About from "./components/About";
 import axios from "axios";
 
-// const kBaseUrl = "http://localhost:5000";
-const kBaseUrl = "http://localhost:8000";
+const kBaseUrl = `${process.env.REACT_APP_BACKEND_URL}`;
+// const kBaseUrl = "http://localhost:8000";
 
 const getAllBoards = () => {
   return axios
@@ -36,16 +36,16 @@ const getAllCards = (boardId) => {
     });
 };
 
-// const postCardApi = (boardId) => {
-//   return axios
-//     .post(`${kBaseUrl}/boards/${boardId}/cards`)
-//     .then((response) => {
-//       return response.data;
-//     })
-//     .catch((error) => {
-//       console.log(error)
-//     });
-// };
+const postCardApi = (boardId, data) => {
+  return axios
+    .post(`${kBaseUrl}/boards/${boardId}/cards`, data)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
 const convertFromApi = (apiBoard) => {
   const { id: boardId, ...board } = apiBoard;
@@ -55,7 +55,7 @@ const convertFromApi = (apiBoard) => {
 
 const convertCardFromApi = (apiCard) => {
   const { likes_count: likesCount, ...card } = apiCard;
-  const newCard = { likesCount, ...card }
+  const newCard = { likesCount, ...card };
   return newCard;
 };
 
@@ -83,7 +83,6 @@ function App() {
     // get request to grab all cards for a board
   };
 
-
   const onBoardSubmit = (data) => {
     return axios
       .post(`${kBaseUrl}/boards`, data)
@@ -100,14 +99,13 @@ function App() {
   //   setBoardsData((boardsData) => [newBoard, ...boardsData]);
   // };
 
-  // const createNewCard = (data) => {
-  //   postCardApi(data)
-  //     .then ((newCard) => {
-  //       setCardsData((prevCards) => {
-  //         return prevCards
-  //       })
-  //     })
-  // }
+  const createNewCard = (data) => {
+    postCardApi(selectedBoardId, data).then((newCard) => {
+      setSelectedCardsData((prevCards) => {
+        return [...prevCards, newCard];
+      });
+    });
+  };
 
   // const createNewCard = (card) => {
   //   const boards = boardsData.map((board) => {
@@ -139,8 +137,6 @@ function App() {
     setBoardsData(boards);
   };
 
-  //need to figure out - how to make get selected board run after useffect or what the initial value will be?
-
   const selectedBoard = getSelectedBoard(selectedBoardId);
 
   return (
@@ -168,11 +164,14 @@ function App() {
             />
           )}
         </section>
-        {/* <section>
+        <section>
           {selectedBoardId != null && (
-            <NewCardForm createNewCard={createNewCard} />
+            <NewCardForm
+              createNewCard={createNewCard}
+              boardId={selectedBoardId}
+            />
           )}
-        </section> */}
+        </section>
       </main>
     </div>
   );
