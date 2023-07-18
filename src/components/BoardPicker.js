@@ -1,4 +1,5 @@
 import React from "react";
+import Board from "./Board";
 // import './BoardPicker.css';
 // import PropTypes from 'prop-types';
 
@@ -7,11 +8,15 @@ const BoardPicker = ({ boardsData, onBoardSelect }) => {
     <div>
       <h1>Boards</h1>
       <section className="board-list">
-        {boardsData.map((board) => {
+        {boardsData.map((board, i) => {
           return (
-            <li key={board.boardId} onClick={() => onBoardSelect(board)}>
-              {board.title}
-            </li>
+            <Board
+              key={i}
+              boardId={board.boardId}
+              title={board.title}
+              owner={board.owner}
+              onBoardSelect={onBoardSelect}
+            />
           );
         })}
       </section>

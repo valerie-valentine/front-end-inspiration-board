@@ -46,12 +46,24 @@ function App() {
   }, []);
 
   const onBoardSelect = (boardSelected) => {
-    setSelectedBoardId(boardSelected.boardId);
+    setSelectedBoardId(boardSelected);
   };
 
-  const createNewBoard = (newBoard) => {
-    setBoardsData((boardsData) => [newBoard, ...boardsData]);
+  const onBoardSubmit = (data) => {
+    axios
+      .post(`${kBaseUrl}/boards`, data)
+      .then((response) => {
+        setBoardsData((prevBoards) => [
+          convertFromApi(response.data),
+          ...prevBoards,
+        ]);
+      })
+      .catch((error) => console.log(error));
   };
+
+  // const createNewBoard = (newBoard) => {
+  //   setBoardsData((boardsData) => [newBoard, ...boardsData]);
+  // };
 
   const createNewCard = (card) => {
     const boards = boardsData.map((board) => {
@@ -102,7 +114,7 @@ function App() {
             <SelectedBoard selectedBoard={selectedBoard} />
           )}
         </section>
-        <NewBoardForm createNewBoard={createNewBoard} />
+        <NewBoardForm onBoardSubmit={onBoardSubmit} />
         <section>
           {selectedBoardId != null && (
             <Cardlist

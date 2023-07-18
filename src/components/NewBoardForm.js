@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "./NewBoardForm.css";
 
-const NewBoardForm = ({ createNewBoard }) => {
+const NewBoardForm = ({ onBoardSubmit }) => {
   // const [newBoard, setNewBoard] = useState({"boardId": 0, "title": "", "owner": ""});
   const [title, setTitle] = useState("");
   const [owner, setOwner] = useState("");
@@ -29,7 +29,7 @@ const NewBoardForm = ({ createNewBoard }) => {
       cards: [],
     };
 
-    createNewBoard(newBoard);
+    onBoardSubmit(newBoard);
     setTitle("");
     setOwner("");
   };
