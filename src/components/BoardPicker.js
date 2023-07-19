@@ -8,7 +8,7 @@ const BoardPicker = ({ boardsData, onBoardSelect }) => {
     <div>
       <h1>Boards</h1>
       <section className="board-list">
-        {boardsData.map((board, i) => {
+        {boardsData.map((board) => {
           return (
             <Board
               key={board.boardId}

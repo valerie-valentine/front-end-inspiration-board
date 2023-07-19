@@ -46,12 +46,22 @@ const postCardApi = (boardId, data) => {
     });
 };
 
-const updateCardApi = (cardId) => {
+const updateCardApi = (cardId, likeStatus) => {
+  const endpoint = likeStatus ? "increase_likes" : "decrease_likes";
   return axios
-    .patch(`${kBaseUrl}/cards/${cardId}/increase_likes`)
+    .patch(`${kBaseUrl}/cards/${cardId}/${endpoint}`)
     .then((response) => {
       return convertCardFromApi(response.data.card);
     })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+const deleteCardApi = (cardId) => {
+  return axios
+    .delete(`${kBaseUrl}/cards/${cardId}`)
+    .then(() => null)
     .catch((error) => {
       console.log(error);
     });
@@ -118,8 +128,8 @@ function App() {
     return selectedBoard[0];
   };
 
-  const onUpdateLikes = (id) => {
-    updateCardApi(id).then((updatedCard) => {
+  const onUpdateLikes = (id, likeStatus) => {
+    updateCardApi(id, likeStatus).then((updatedCard) => {
       const cards = selectedCardsData.map((card) => {
         if (card.id === id) {
           return updatedCard;
@@ -127,6 +137,13 @@ function App() {
         return card;
       });
       setSelectedCardsData(cards);
+    });
+  };
+
+  const onDeleteCard = (id) => {
+    deleteCardApi(id).then(() => {
+      const newCards = selectedCardsData.filter((card) => card.id !== id);
+      setSelectedCardsData(newCards);
     });
   };
 
@@ -169,6 +186,7 @@ function App() {
               selectedBoard={selectedBoard}
               onUpdateLikes={onUpdateLikes}
               selectedCardsData={selectedCardsData}
+              onDeleteCard={onDeleteCard}
             />
           )}
         </section>
