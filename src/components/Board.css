@@ -11,9 +11,17 @@
 .polaroid .dog-image {
     /* height: 10rem; */
     width: 80%;
+    padding: 2vh;
+    border-radius: 7px;
 }
 
 figcaption {
     color: #000;
     text-align: center;
+}
+
+.board-label {
+    font-family: 'Amatic SC', cursive;
+    /* font-size: 2rem; */
+    font-size: 35px;
 }

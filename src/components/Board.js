@@ -13,7 +13,7 @@ const Board = ({ boardId, title, owner, onBoardSelect }) => {
           alt="Samoyed" 
           className="dog-image"/>
           <figcaption>
-            <div>
+            <div className="board-label">
               {title} - {owner}
             </div>
           </figcaption>

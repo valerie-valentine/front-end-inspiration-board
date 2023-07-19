@@ -10,7 +10,7 @@ const Card = ({ id, likesCount, message, onUpdateLikes, onDeleteCard }) => {
     onDeleteCard(id);
   };
   return (
-    <section>
+    <section className="card">
       <p>{message}</p>
       <p>{likesCount}</p>
       <button className="like-button" onClick={() => handleLikeClick(true)}>
