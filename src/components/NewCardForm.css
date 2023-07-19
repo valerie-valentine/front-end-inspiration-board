@@ -1,0 +1,12 @@
+.new-card-form {
+    margin-top: 10rem;
+    margin-bottom: 20rem;
+    /* background: white; */
+    /* border: 3px solid;
+    border-color: white; */
+}
+
+.create-card-label {
+    font-family: 'Amatic SC', cursive;
+    font-size: 60px;
+}

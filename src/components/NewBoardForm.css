@@ -6,3 +6,17 @@
 .visibility-button.hidden {
     visibility: hidden;
 }
+
+.board-form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    background-color: white;
+    width: 25%;
+}
+
+.create-board-label {
+    font-family: 'Amatic SC', cursive;
+    font-size: 60px;
+}

@@ -104,7 +104,7 @@ function App() {
               <SelectedBoard selectedBoard={selectedBoard} />
             )}
           </section>
-          <section className="new-board-form">
+          <section className="form-container">
             <NewBoardForm onBoardSubmit={onBoardSubmit} />
           </section>
           <section className="card-list">
@@ -117,7 +117,7 @@ function App() {
               />
             )}
           </section>
-          <section className="new-card-form">
+          <section className="form-container">
             {selectedBoardId != null && (
               <NewCardForm createNewCard={createNewCard} />
             )}

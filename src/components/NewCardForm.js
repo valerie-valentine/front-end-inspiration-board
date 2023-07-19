@@ -21,8 +21,8 @@ const NewCardForm = ({ createNewCard }) => {
   };
 
   return (
-    <div>
-      <h1>Create New Card</h1>
+    <div className="new-card-form">
+      <h1 className="create-card-label">Create New Card</h1>
       <form onSubmit={handleSubmit}>
         <section>
           <label htmlFor="message">Message:</label>

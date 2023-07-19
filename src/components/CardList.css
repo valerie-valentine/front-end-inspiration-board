@@ -5,3 +5,8 @@
     margin-left: 5rem;
     margin-right: 5rem;
 }
+
+.cards-for-label {
+    font-family: 'Amatic SC', cursive;
+    font-size: 60px;
+}

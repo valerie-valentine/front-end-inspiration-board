@@ -37,8 +37,8 @@ const NewBoardForm = ({ onBoardSubmit }) => {
   // if title.link > 40 -> ClassName (displaying a class dependent on condition - teranary)
 
   return (
-    <div>
-      <h1>Create New Board</h1>
+    <div className="board-form">
+      <h1 className="create-board-label">Create New Board</h1>
       {!isBoardFormVisible && (
         <button onClick={handleVisibilityButton}>Show Create Board Form</button>
       )}

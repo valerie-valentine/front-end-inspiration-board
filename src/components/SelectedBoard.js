@@ -6,7 +6,7 @@ import './SelectedBoard.css';
 const SelectedBoard = ({selectedBoard}) => {
     return (
         <div>
-            <h1>
+            <h1 className="selected-board-label">
                 SelectedBoard
             </h1>
             <p>

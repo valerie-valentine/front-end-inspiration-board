@@ -10,7 +10,7 @@ const CardList = ({
 }) => {
   return (
     <div>
-      <h2>Cards for {selectedBoard.title}</h2>
+      <h2 className="cards-for-label">Cards for {selectedBoard.title}</h2>
       <section className="card-list">
         {selectedCardsData.map((card) => {
           return (
