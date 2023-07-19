@@ -1,6 +1,6 @@
 import React from "react";
 import Board from "./Board";
-// import './BoardPicker.css';
+import './BoardPicker.css';
 // import PropTypes from 'prop-types';
 
 const BoardPicker = ({ boardsData, onBoardSelect }) => {

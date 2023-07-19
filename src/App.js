@@ -89,38 +89,42 @@ function App() {
   const selectedBoard = getSelectedBoard(selectedBoardId);
 
   return (
-    <div className="App">
-      <header>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </header>
-      <main>
-        <BoardPicker boardsData={boardsData} onBoardSelect={onBoardSelect} />
-        <section>
-          {selectedBoardId != null && (
-            <SelectedBoard selectedBoard={selectedBoard} />
-          )}
-        </section>
-        <NewBoardForm onBoardSubmit={onBoardSubmit} />
-        <section>
-          {selectedBoardId != null && (
-            <Cardlist
-              selectedBoard={selectedBoard}
-              onUpdateLikes={onUpdateLikes}
-              selectedCardsData={selectedCardsData}
-              onDeleteCard={onDeleteCard}
-            />
-          )}
-        </section>
-        <section>
-          {selectedBoardId != null && (
-            <NewCardForm createNewCard={createNewCard} />
-          )}
-        </section>
-      </main>
-    </div>
+    <body>
+      <div className="App">
+        {/* <header>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </header> */}
+        <main>
+          <BoardPicker boardsData={boardsData} onBoardSelect={onBoardSelect} />
+          <section className="selected-board">
+            {selectedBoardId != null && (
+              <SelectedBoard selectedBoard={selectedBoard} />
+            )}
+          </section>
+          <section className="new-board-form">
+            <NewBoardForm onBoardSubmit={onBoardSubmit} />
+          </section>
+          <section className="card-list">
+            {selectedBoardId != null && (
+              <Cardlist
+                selectedBoard={selectedBoard}
+                onUpdateLikes={onUpdateLikes}
+                selectedCardsData={selectedCardsData}
+                onDeleteCard={onDeleteCard}
+              />
+            )}
+          </section>
+          <section className="new-card-form">
+            {selectedBoardId != null && (
+              <NewCardForm createNewCard={createNewCard} />
+            )}
+          </section>
+        </main>
+      </div>
+    </body>
   );
 }
 

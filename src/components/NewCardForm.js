@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import './NewCardForm.css';
 
 const NewCardForm = ({ createNewCard }) => {
   const [message, setMessage] = useState("");

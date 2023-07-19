@@ -1,0 +1,19 @@
+
+.polaroid {
+    background-color: #fff;
+    padding: 1rem 1rem 4rem;
+    box-shadow: 5px 7px 4px rgba(0,0,0,0.4);
+    border-radius: 7px;
+    list-style-type: none;
+    /* width: 22rem; */
+}
+
+.polaroid .dog-image {
+    /* height: 10rem; */
+    width: 80%;
+}
+
+figcaption {
+    color: #000;
+    text-align: center;
+}

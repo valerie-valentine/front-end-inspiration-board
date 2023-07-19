@@ -1,5 +1,5 @@
 import React from "react";
-// import './Board.css';
+import './SelectedBoard.css';
 // import PropTypes from 'prop-types';
 
 
