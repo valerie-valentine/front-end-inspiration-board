@@ -16,16 +16,18 @@ const SelectedBoard = ({ selectedBoard, clearSelectedBoard }) => {
     //         {selectedBoard.title} {selectedBoard.owner}
     //     </p>
     // </div>
-    <section>
-      <li className="polaroid">
+    <div>
+      <h1 className="selected-board-label">SELECTED BOARD</h1>
+    <section className="selected-polaroid">
+      <li>
         {/* <figure className="polaroid"> */}
         <img
-          src="https://st2.depositphotos.com/3110539/7033/v/950/depositphotos_70334905-stock-illustration-dog-samoyed-buddy-puppy-vector.jpg"
-          alt="Samoyed"
           className="dog-image"
+          src="https://i.natgeofe.com/k/ad9b542e-c4a0-4d0b-9147-da17121b4c98/MOmeow1_square.png"
+          alt="Samoyed"
         />
         <figcaption>
-          <div className="board-label">
+          <div className="selected-board-label">
             {selectedBoard.title} - {selectedBoard.owner}
           </div>
         </figcaption>
@@ -35,6 +37,7 @@ const SelectedBoard = ({ selectedBoard, clearSelectedBoard }) => {
         X
       </button>
     </section>
+    </div>
   );
 };
 

@@ -1,13 +1,13 @@
 .board-list {
     display: grid;
     /* grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) ); */
-    grid-template-columns: repeat( auto-fit, minmax(min(100%/1, max(250px, 100%/4)), 1fr) );
+    grid-template-columns: repeat( auto-fit, minmax(min(100%/1, max(250px, 85%/4)), 1fr) );
     gap: 50px 50px;
     margin-left: 5rem;
-    margin-right: 5rem;
+    margin-right: 5rem;;
 }
 
 .boards-label {
     font-family: 'Amatic SC', cursive;
-    font-size: 70px;
+    font-size: 90px;
 }

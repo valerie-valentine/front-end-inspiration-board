@@ -4,6 +4,7 @@
     gap: 50px 50px;
     margin-left: 5rem;
     margin-right: 5rem;
+    justify-content: center;
 }
 
 .cards-for-label {

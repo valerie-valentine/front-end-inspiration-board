@@ -1,17 +1,23 @@
-.polaroid {
+
+.selected-polaroid {
     background-color: #fff;
     padding: 1rem 1rem 4rem;
-    box-shadow: 5px 7px 4px rgba(0,0,0,0.4);
+    /* box-shadow: 5px 7px 4px rgba(0,0,0,0.4); */
+    filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.4));
     border-radius: 7px;
     list-style-type: none;
-    /* width: 22rem; */
+    margin-top: 40px;
+    position: relative;
 }
 
-.polaroid .dog-image {
+.selected-polaroid .dog-image {
     /* height: 10rem; */
     width: 80%;
     padding: 2vh;
     border-radius: 7px;
+    width: 90%;
+    height: auto;
+    border-radius: 5%;
 }
 
 figcaption {
@@ -19,7 +25,7 @@ figcaption {
     text-align: center;
 }
 
-.board-label {
+.selected-board-label {
     font-family: 'Amatic SC', cursive;
     /* font-size: 2rem; */
     font-size: 35px;
@@ -29,4 +35,12 @@ figcaption {
     position: absolute;
     right: 5px;
     top: 5px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.selected-board-label {
+    font-size: 90px;
 }

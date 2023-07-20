@@ -13,15 +13,17 @@ const Card = ({ id, likesCount, message, onUpdateLikes, onDeleteCard }) => {
     <section className="card">
       <p>{message}</p>
       <p>{likesCount}</p>
-      <button className="like-button" onClick={() => handleLikeClick(true)}>
+      <div className="card-button-container">
+      <button className="reaction-button" onClick={() => handleLikeClick(true)}>
         🩷
       </button>
-      <button className="unlike-button" onClick={() => handleLikeClick(false)}>
+      <button className="reaction-button" onClick={() => handleLikeClick(false)}>
         👎
       </button>
-      <button className="delete-button" onClick={handleDeleteCard}>
+      <button className="reaction-button" onClick={handleDeleteCard}>
         🗑️
       </button>
+      </div>
     </section>
   );
 };
