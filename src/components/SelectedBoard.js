@@ -29,8 +29,6 @@ const SelectedBoard = ({ selectedBoard, clearSelectedBoard }) => {
           src={preSelected ? images[selectedBoard.image] : selectedBoard.image}
           alt="Animal"
           className="dog-image"
-          src="https://i.natgeofe.com/k/ad9b542e-c4a0-4d0b-9147-da17121b4c98/MOmeow1_square.png"
-          alt="Samoyed"
         />
         <figcaption>
           <div className="selected-board-label">
@@ -42,7 +40,6 @@ const SelectedBoard = ({ selectedBoard, clearSelectedBoard }) => {
         X
       </button>
     </section>
-    </div>
   );
 };
 
