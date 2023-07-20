@@ -8,8 +8,7 @@ const NewBoardForm = ({ onBoardSubmit }) => {
   const [isBoardFormVisible, setIsBoardFormVisible] = useState(true);
   const [selectedImage, setSelectedImage] = useState("");
   const [customImage, setCustomImage] = useState("");
-  // image selected state
-  // custom image state
+
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };
@@ -38,7 +37,6 @@ const NewBoardForm = ({ onBoardSubmit }) => {
       owner: owner,
       cards: [],
       image: selectedImage === "custom" ? customImage : selectedImage,
-      //conditional to check if custom image or selected image
     };
 
     onBoardSubmit(newBoard);
@@ -46,9 +44,6 @@ const NewBoardForm = ({ onBoardSubmit }) => {
     setOwner("");
   };
 
-  // if title.link > 40 -> ClassName (displaying a class dependent on condition - teranary)
-  //input form for dropdown
-  //input form that appears for custom url when selected
   return (
     <div className="board-form">
       <h1 className="create-board-label">Create New Board</h1>
@@ -122,6 +117,3 @@ const NewBoardForm = ({ onBoardSubmit }) => {
 };
 
 export default NewBoardForm;
-//teranary opertor for custom field
-// if selectedimage == custom {
-//  <input></input>
