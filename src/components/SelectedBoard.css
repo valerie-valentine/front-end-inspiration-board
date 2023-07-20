@@ -24,3 +24,9 @@ figcaption {
     /* font-size: 2rem; */
     font-size: 35px;
 }
+
+.x-button {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}

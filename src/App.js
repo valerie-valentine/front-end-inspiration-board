@@ -86,6 +86,10 @@ function App() {
     });
   };
 
+  const clearSelectedBoard = () => {
+    setSelectedBoardId(null);
+  };
+
   const selectedBoard = getSelectedBoard(selectedBoardId);
 
   return (
@@ -106,7 +110,10 @@ function App() {
           )}
           <section className="selected-board">
             {selectedBoardId != null && (
-              <SelectedBoard selectedBoard={selectedBoard} />
+              <SelectedBoard
+                selectedBoard={selectedBoard}
+                clearSelectedBoard={clearSelectedBoard}
+              />
             )}
           </section>
           <section className="form-container">

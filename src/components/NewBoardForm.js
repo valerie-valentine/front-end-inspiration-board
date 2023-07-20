@@ -1,13 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import "./NewBoardForm.css";
+//const object {name(list options): url}
 
 const NewBoardForm = ({ onBoardSubmit }) => {
   // const [newBoard, setNewBoard] = useState({"boardId": 0, "title": "", "owner": ""});
   const [title, setTitle] = useState("");
   const [owner, setOwner] = useState("");
   const [isBoardFormVisible, setIsBoardFormVisible] = useState(true);
-
+  // image selected state
+  // custom image state
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };
@@ -27,6 +29,7 @@ const NewBoardForm = ({ onBoardSubmit }) => {
       title: title,
       owner: owner,
       cards: [],
+      //image: add image url
     };
 
     onBoardSubmit(newBoard);
@@ -35,7 +38,8 @@ const NewBoardForm = ({ onBoardSubmit }) => {
   };
 
   // if title.link > 40 -> ClassName (displaying a class dependent on condition - teranary)
-
+  //input form for dropdown
+  //input form that appears for custom url when selected
   return (
     <div className="board-form">
       <h1 className="create-board-label">Create New Board</h1>
