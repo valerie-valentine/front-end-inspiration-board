@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-import './CardList.css';
+import "./CardList.css";
 
 const CardList = ({
   selectedBoard,

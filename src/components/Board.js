@@ -15,25 +15,24 @@ const images = {
 };
 
 const Board = ({ boardId, title, owner, image, onBoardSelect }) => {
+  const preSelected = images.hasOwnProperty(image);
+
   const handleBoardSelect = () => {
     onBoardSelect(boardId);
   };
 
   return (
     <li onClick={handleBoardSelect} className="polaroid">
-      {/* <figure className="polaroid"> */}
-      {/* <img
-        src="https://st2.depositphotos.com/3110539/7033/v/950/depositphotos_70334905-stock-illustration-dog-samoyed-buddy-puppy-vector.jpg"
-        alt="Samoyed"
+      <img
+        src={preSelected ? images[image] : image}
+        alt="Animal"
         className="dog-image"
-      /> */}
-      <img src={images[image]} alt="Animal" className="dog-image" />
+      />
       <figcaption>
         <div className="board-label">
           {title} - {owner}
         </div>
       </figcaption>
-      {/* </figure> */}
     </li>
   );
 };

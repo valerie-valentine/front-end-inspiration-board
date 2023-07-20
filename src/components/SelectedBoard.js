@@ -16,25 +16,18 @@ const images = {
 };
 
 const SelectedBoard = ({ selectedBoard, clearSelectedBoard }) => {
+  const preSelected = images.hasOwnProperty(selectedBoard.image);
+
   const handleClearSelectedBoard = () => {
     clearSelectedBoard();
   };
 
   return (
-    // <div>
-    //     <h1 className="selected-board-label">
-    //         SelectedBoard
-    //     </h1>
-    //     <p>
-    //         {selectedBoard.title} {selectedBoard.owner}
-    //     </p>
-    // </div>
     <section>
       <li className="polaroid">
-        {/* <figure className="polaroid"> */}
         <img
-          src={images[selectedBoard.image]}
-          alt="Samoyed"
+          src={preSelected ? images[selectedBoard.image] : selectedBoard.image}
+          alt="Animal"
           className="dog-image"
         />
         <figcaption>
@@ -42,7 +35,6 @@ const SelectedBoard = ({ selectedBoard, clearSelectedBoard }) => {
             {selectedBoard.title} - {selectedBoard.owner}
           </div>
         </figcaption>
-        {/* </figure> */}
       </li>
       <button className="x-button" onClick={handleClearSelectedBoard}>
         X

@@ -7,15 +7,19 @@ const NewBoardForm = ({ onBoardSubmit }) => {
   const [owner, setOwner] = useState("");
   const [isBoardFormVisible, setIsBoardFormVisible] = useState(true);
   const [selectedImage, setSelectedImage] = useState("");
+  const [customImage, setCustomImage] = useState("");
   // image selected state
   // custom image state
-  console.log(selectedImage);
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };
 
   const handleOwnerChange = (event) => {
     setOwner(event.target.value);
+  };
+
+  const handleCustomerImage = (event) => {
+    setCustomImage(event.target.value);
   };
 
   const handleVisibilityButton = (event) => {
@@ -33,7 +37,8 @@ const NewBoardForm = ({ onBoardSubmit }) => {
       title: title,
       owner: owner,
       cards: [],
-      image: selectedImage,
+      image: selectedImage === "custom" ? customImage : selectedImage,
+      //conditional to check if custom image or selected image
     };
 
     onBoardSubmit(newBoard);
@@ -79,6 +84,7 @@ const NewBoardForm = ({ onBoardSubmit }) => {
               value={owner}
               required
             ></input>
+            {owner.length > 39 && <p>Please limit characters to under 40.</p>}
             <label htmlFor="image">Choose an image:</label>
             <select name="images" id="images" onClick={handleImageSelect}>
               <option value="cat">Cat</option>
@@ -86,8 +92,21 @@ const NewBoardForm = ({ onBoardSubmit }) => {
               <option value="sloth">Sloth</option>
               <option value="redPanda">Red Panda</option>
               <option value="sailorMoon">Sailor Moon</option>
+              <option value="custom">Custom</option>
             </select>
-            {owner.length > 39 && <p>Please limit characters to under 40.</p>}
+            {selectedImage === "custom" && (
+              <div>
+                <label htmlFor="custom">Image Url:</label>
+                <input
+                  type="text"
+                  id="custom"
+                  name="custom"
+                  onChange={handleCustomerImage}
+                  value={customImage}
+                  required
+                ></input>
+              </div>
+            )}
             <div>
               <p>
                 Preview: {title} - {owner}
@@ -103,3 +122,6 @@ const NewBoardForm = ({ onBoardSubmit }) => {
 };
 
 export default NewBoardForm;
+//teranary opertor for custom field
+// if selectedimage == custom {
+//  <input></input>
