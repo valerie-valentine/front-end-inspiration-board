@@ -17,6 +17,7 @@ import {
   postCardApi,
   updateCardApi,
   deleteCardApi,
+  deleteBoardApi,
   convertFromApi,
 } from "./NetworkMethods.js";
 
@@ -86,6 +87,13 @@ function App() {
     });
   };
 
+  const onDeleteBoard = (id) => {
+    deleteBoardApi(id).then(() => {
+      const newBoards = boardsData.filter((board) => board.boardId !== id);
+      setBoardsData(newBoards);
+    });
+  };
+
   const clearSelectedBoard = () => {
     setSelectedBoardId(null);
   };
@@ -97,38 +105,39 @@ function App() {
       <div className="App">
         <main>
           <h1 className="boards-label">Boards</h1>
-            <section className="form-container">
-              <NewBoardForm onBoardSubmit={onBoardSubmit} />
-            </section>
-            {selectedBoardId === null && (
-              <BoardPicker
-                boardsData={boardsData}
-                onBoardSelect={onBoardSelect}
+          <section className="form-container">
+            <NewBoardForm onBoardSubmit={onBoardSubmit} />
+          </section>
+          {selectedBoardId === null && (
+            <BoardPicker
+              boardsData={boardsData}
+              onBoardSelect={onBoardSelect}
+              onDeleteBoard={onDeleteBoard}
+            />
+          )}
+          <section className="selected-board">
+            {selectedBoardId != null && (
+              <SelectedBoard
+                selectedBoard={selectedBoard}
+                clearSelectedBoard={clearSelectedBoard}
               />
             )}
-            <section className="selected-board">
-              {selectedBoardId != null && (
-                <SelectedBoard
-                  selectedBoard={selectedBoard}
-                  clearSelectedBoard={clearSelectedBoard}
-                />
-              )}
-            </section>
-            <section className="card-list">
-              {selectedBoardId != null && (
-                <Cardlist
-                  selectedBoard={selectedBoard}
-                  onUpdateLikes={onUpdateLikes}
-                  selectedCardsData={selectedCardsData}
-                  onDeleteCard={onDeleteCard}
-                />
-              )}
-            </section>
-            <section className="form-container">
-              {selectedBoardId != null && (
-                <NewCardForm createNewCard={createNewCard} />
-              )}
-            </section>
+          </section>
+          <section className="card-list">
+            {selectedBoardId != null && (
+              <Cardlist
+                selectedBoard={selectedBoard}
+                onUpdateLikes={onUpdateLikes}
+                selectedCardsData={selectedCardsData}
+                onDeleteCard={onDeleteCard}
+              />
+            )}
+          </section>
+          <section className="form-container">
+            {selectedBoardId != null && (
+              <NewCardForm createNewCard={createNewCard} />
+            )}
+          </section>
         </main>
       </div>
     </body>

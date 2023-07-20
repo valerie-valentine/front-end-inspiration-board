@@ -56,6 +56,15 @@ const deleteCardApi = (cardId) => {
     });
 };
 
+const deleteBoardApi = (boardId) => {
+  return axios
+    .delete(`${kBaseUrl}/boards/${boardId}`)
+    .then(() => null)
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 const convertFromApi = (apiBoard) => {
   const { id: boardId, ...board } = apiBoard;
   const newBoard = { boardId, ...board };
@@ -75,6 +84,7 @@ export {
   postCardApi,
   updateCardApi,
   deleteCardApi,
+  deleteBoardApi,
   convertFromApi,
   convertCardFromApi,
 };

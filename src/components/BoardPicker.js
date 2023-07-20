@@ -3,7 +3,7 @@ import Board from "./Board";
 import "./BoardPicker.css";
 // import PropTypes from 'prop-types';
 
-const BoardPicker = ({ boardsData, onBoardSelect }) => {
+const BoardPicker = ({ boardsData, onBoardSelect, onDeleteBoard }) => {
   return (
     <div>
       {/* <h1 className="boards-label">Boards</h1> */}
@@ -17,6 +17,7 @@ const BoardPicker = ({ boardsData, onBoardSelect }) => {
               owner={board.owner}
               image={board.image}
               onBoardSelect={onBoardSelect}
+              onDeleteBoard={onDeleteBoard}
             />
           );
         })}

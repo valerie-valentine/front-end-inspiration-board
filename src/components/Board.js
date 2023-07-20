@@ -14,26 +14,42 @@ const images = {
   sailorMoon,
 };
 
-const Board = ({ boardId, title, owner, image, onBoardSelect }) => {
+const Board = ({
+  boardId,
+  title,
+  owner,
+  image,
+  onBoardSelect,
+  onDeleteBoard,
+}) => {
   const preSelected = images.hasOwnProperty(image);
 
   const handleBoardSelect = () => {
     onBoardSelect(boardId);
   };
 
+  const handleDeleteCard = () => {
+    onDeleteBoard(boardId);
+  };
+
   return (
-    <li onClick={handleBoardSelect} className="polaroid">
-      <img
-        src={preSelected ? images[image] : image}
-        alt="Animal"
-        className="dog-image"
-      />
-      <figcaption>
-        <div className="board-label">
-          {title} - {owner}
-        </div>
-      </figcaption>
-    </li>
+    <section>
+      <li onClick={handleBoardSelect} className="polaroid">
+        <img
+          src={preSelected ? images[image] : image}
+          alt="Animal"
+          className="dog-image"
+        />
+        <figcaption>
+          <div className="board-label">
+            {title} - {owner}
+          </div>
+        </figcaption>
+      </li>
+      <button className="reaction-button" onClick={handleDeleteCard}>
+        🗑️
+      </button>
+    </section>
   );
 };
 export default Board;
