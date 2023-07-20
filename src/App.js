@@ -98,7 +98,12 @@ function App() {
           </Routes>
         </header> */}
         <main>
-          <BoardPicker boardsData={boardsData} onBoardSelect={onBoardSelect} />
+          {selectedBoardId === null && (
+            <BoardPicker
+              boardsData={boardsData}
+              onBoardSelect={onBoardSelect}
+            />
+          )}
           <section className="selected-board">
             {selectedBoardId != null && (
               <SelectedBoard selectedBoard={selectedBoard} />
