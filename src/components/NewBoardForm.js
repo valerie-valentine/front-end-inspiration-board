@@ -2,12 +2,19 @@ import React from "react";
 import { useState } from "react";
 import "./NewBoardForm.css";
 //const object {name(list options): url}
+const imageUrls = {
+  cat: "Assets/cat.avif",
+  dog: "Assets/dog.jpg",
+  sloth: "Assets/sloth.avif",
+  redPanda: "Assets/red-panda.jpg",
+  sailorMoon: "Assets/sailor-moon-anime.gif",
+};
 
 const NewBoardForm = ({ onBoardSubmit }) => {
-  // const [newBoard, setNewBoard] = useState({"boardId": 0, "title": "", "owner": ""});
   const [title, setTitle] = useState("");
   const [owner, setOwner] = useState("");
   const [isBoardFormVisible, setIsBoardFormVisible] = useState(true);
+  const [selectedImage, setSelectedImage] = useState("");
   // image selected state
   // custom image state
   const handleTitleChange = (event) => {
@@ -23,13 +30,18 @@ const NewBoardForm = ({ onBoardSubmit }) => {
     setIsBoardFormVisible(!isBoardFormVisible);
   };
 
+  const handleImageSelect = (event) => {
+    const Url = imageUrls[event.target.value];
+    setSelectedImage(Url);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const newBoard = {
       title: title,
       owner: owner,
       cards: [],
-      //image: add image url
+      image: selectedImage,
     };
 
     onBoardSubmit(newBoard);
@@ -75,6 +87,14 @@ const NewBoardForm = ({ onBoardSubmit }) => {
               value={owner}
               required
             ></input>
+            <label htmlFor="image">Choose an image:</label>
+            <select name="images" id="images" onClick={handleImageSelect}>
+              <option value="cat">Cat</option>
+              <option value="dog">Dog</option>
+              <option value="sloth">Sloth</option>
+              <option value="redPanda">Red Panda</option>
+              <option value="sailorMoon">Sailor Moon</option>
+            </select>
             {owner.length > 39 && <p>Please limit characters to under 40.</p>}
             <div>
               <p>
