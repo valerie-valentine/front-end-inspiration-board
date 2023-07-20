@@ -1,6 +1,19 @@
 import React from "react";
 import "./SelectedBoard.css";
+import cat from "../Assets/cat.avif";
+import dog from "../Assets/dog.jpg";
+import redPanda from "../Assets/red-panda.jpg";
+import sailorMoon from "../Assets/sailor-moon-anime.gif";
+import sloth from "../Assets/sloth.avif";
 // import PropTypes from 'prop-types';
+
+const images = {
+  cat,
+  dog,
+  sloth,
+  redPanda,
+  sailorMoon,
+};
 
 const SelectedBoard = ({ selectedBoard, clearSelectedBoard }) => {
   const handleClearSelectedBoard = () => {
@@ -20,7 +33,7 @@ const SelectedBoard = ({ selectedBoard, clearSelectedBoard }) => {
       <li className="polaroid">
         {/* <figure className="polaroid"> */}
         <img
-          src="https://st2.depositphotos.com/3110539/7033/v/950/depositphotos_70334905-stock-illustration-dog-samoyed-buddy-puppy-vector.jpg"
+          src={images[selectedBoard.image]}
           alt="Samoyed"
           className="dog-image"
         />

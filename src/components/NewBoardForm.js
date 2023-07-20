@@ -1,14 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import "./NewBoardForm.css";
-//const object {name(list options): url}
-const imageUrls = {
-  cat: "Assets/cat.avif",
-  dog: "Assets/dog.jpg",
-  sloth: "Assets/sloth.avif",
-  redPanda: "Assets/red-panda.jpg",
-  sailorMoon: "Assets/sailor-moon-anime.gif",
-};
 
 const NewBoardForm = ({ onBoardSubmit }) => {
   const [title, setTitle] = useState("");
@@ -17,6 +9,7 @@ const NewBoardForm = ({ onBoardSubmit }) => {
   const [selectedImage, setSelectedImage] = useState("");
   // image selected state
   // custom image state
+  console.log(selectedImage);
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
   };
@@ -31,8 +24,7 @@ const NewBoardForm = ({ onBoardSubmit }) => {
   };
 
   const handleImageSelect = (event) => {
-    const Url = imageUrls[event.target.value];
-    setSelectedImage(Url);
+    setSelectedImage(event.target.value);
   };
 
   const handleSubmit = (event) => {
