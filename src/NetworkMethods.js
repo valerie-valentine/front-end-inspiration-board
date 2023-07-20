@@ -28,7 +28,7 @@ const postCardApi = (boardId, data) => {
   return axios
     .post(`${kBaseUrl}/boards/${boardId}/cards`, data)
     .then((response) => {
-      return response.data;
+      return convertCardFromApi(response.data);
     })
     .catch((error) => {
       console.log(error);

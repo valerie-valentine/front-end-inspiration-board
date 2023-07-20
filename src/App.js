@@ -6,9 +6,9 @@ import SelectedBoard from "./components/SelectedBoard";
 import NewBoardForm from "./components/NewBoardForm";
 import Cardlist from "./components/CardList";
 import NewCardForm from "./components/NewCardForm";
-import { Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
-import About from "./components/About";
+// import { Routes, Route } from "react-router-dom";
+// import Home from "./components/Home";
+// import About from "./components/About";
 import axios from "axios";
 import {
   kBaseUrl,
@@ -95,45 +95,40 @@ function App() {
   return (
     <body>
       <div className="App">
-        {/* <header>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
-        </header> */}
         <main>
-          {selectedBoardId === null && (
-            <BoardPicker
-              boardsData={boardsData}
-              onBoardSelect={onBoardSelect}
-            />
-          )}
-          <section className="selected-board">
-            {selectedBoardId != null && (
-              <SelectedBoard
-                selectedBoard={selectedBoard}
-                clearSelectedBoard={clearSelectedBoard}
+          <h1 className="boards-label">Boards</h1>
+            <section className="form-container">
+              <NewBoardForm onBoardSubmit={onBoardSubmit} />
+            </section>
+            {selectedBoardId === null && (
+              <BoardPicker
+                boardsData={boardsData}
+                onBoardSelect={onBoardSelect}
               />
             )}
-          </section>
-          <section className="form-container">
-            <NewBoardForm onBoardSubmit={onBoardSubmit} />
-          </section>
-          <section className="card-list">
-            {selectedBoardId != null && (
-              <Cardlist
-                selectedBoard={selectedBoard}
-                onUpdateLikes={onUpdateLikes}
-                selectedCardsData={selectedCardsData}
-                onDeleteCard={onDeleteCard}
-              />
-            )}
-          </section>
-          <section className="form-container">
-            {selectedBoardId != null && (
-              <NewCardForm createNewCard={createNewCard} />
-            )}
-          </section>
+            <section className="selected-board">
+              {selectedBoardId != null && (
+                <SelectedBoard
+                  selectedBoard={selectedBoard}
+                  clearSelectedBoard={clearSelectedBoard}
+                />
+              )}
+            </section>
+            <section className="card-list">
+              {selectedBoardId != null && (
+                <Cardlist
+                  selectedBoard={selectedBoard}
+                  onUpdateLikes={onUpdateLikes}
+                  selectedCardsData={selectedCardsData}
+                  onDeleteCard={onDeleteCard}
+                />
+              )}
+            </section>
+            <section className="form-container">
+              {selectedBoardId != null && (
+                <NewCardForm createNewCard={createNewCard} />
+              )}
+            </section>
         </main>
       </div>
     </body>

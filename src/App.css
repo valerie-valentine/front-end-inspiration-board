@@ -24,3 +24,8 @@ body {
   max-width: 600px;
   margin: 0 auto;
 }
+
+.boards-label {
+  font-family: 'Amatic SC', cursive;
+  font-size: 90px;
+}

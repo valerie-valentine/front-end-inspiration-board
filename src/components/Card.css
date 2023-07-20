@@ -2,28 +2,33 @@
     background: linear-gradient(45deg, aqua, hotpink);
     padding: 2rem;
     border: 3px;
-    height: 300px;
     border:solid;
     border-color: white;
     border-radius: 7px;
     /* box-shadow: 5px 7px 4px rgba(0,0,0,0.4); */
     filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.4));
-    font-size: 30px;
+    font-size: 40px;
+    position: relative;
+    /* height: 300px; */
+    word-wrap: break-word;
+    overflow: auto;
+    min-height: 300px;
+    min-width: 200px;
+    max-width: 300px
 }
 
 .card-button-container {
     display: flex;
+    position: absolute;
     justify-content: center;
     gap: 60px;
-    position: relative;
-    top: 110px;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .reaction-button {
     background-color: transparent;
-    /* border: 1px solid; */
-    /* border-color: white; */
-    /* border-radius: 5px; */
     outline: none;
     border: none;
     cursor: pointer;
@@ -36,4 +41,12 @@
 
 .reaction-button:hover {
     transform: scale(1.2);
+}
+
+.likes-tracker {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
 }

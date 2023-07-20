@@ -12,7 +12,7 @@ const Card = ({ id, likesCount, message, onUpdateLikes, onDeleteCard }) => {
   return (
     <section className="card">
       <p>{message}</p>
-      <p>{likesCount}</p>
+      <p className="likes-tracker">Likes: {likesCount}</p>
       <div className="card-button-container">
       <button className="reaction-button" onClick={() => handleLikeClick(true)}>
         🩷

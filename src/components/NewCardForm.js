@@ -13,7 +13,7 @@ const NewCardForm = ({ createNewCard }) => {
     event.preventDefault();
     const newCard = {
       message: message,
-      likeCount: 0,
+      likesCount: 0,
     };
 
     createNewCard(newCard); //newCard.boardId
@@ -41,7 +41,7 @@ const NewCardForm = ({ createNewCard }) => {
             <p>Preview: {message}</p>
           </div>
           <div>
-            <input type="submit" value="Add a Card" className="add-button"></input>
+            <input type="submit" value="Add a Card" className="add-card-button"></input>
           </div>
         </section>
       </form>

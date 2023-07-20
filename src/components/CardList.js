@@ -10,7 +10,12 @@ const CardList = ({
 }) => {
   return (
     <div>
+      {selectedCardsData.length !== 0 && (
       <h2 className="cards-for-label">Cards for {selectedBoard.title}</h2>
+      )}
+      {selectedCardsData.length === 0 && (
+      <h2 className="cards-for-label">Please add a card to {selectedBoard.title}</h2>
+      )}
       <section className="card-list">
         {selectedCardsData.map((card) => {
           return (
