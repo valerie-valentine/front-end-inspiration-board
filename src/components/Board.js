@@ -45,7 +45,12 @@ const Board = ({
             {title} - {owner}
           </div>
         </figcaption>
-        <button className="board-delete-button" onClick={handleDeleteCard}>
+        <button 
+        className="board-delete-button" 
+        onClick={(event) => {
+        event.stopPropagation();
+        handleDeleteCard();
+      }}>
           🗑️
         </button>
       </li>

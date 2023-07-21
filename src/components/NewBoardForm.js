@@ -106,8 +106,8 @@ const NewBoardForm = ({ onBoardSubmit, selectedBoardId }) => {
                 onChange={handleImageSelect}
                 className="image-form-field"
               >
-                <option value="cat">Cat</option>
                 <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
                 <option value="sloth">Sloth</option>
                 <option value="redPanda">Red Panda</option>
                 <option value="sailorMoon">Sailor Moon</option>

@@ -21,6 +21,8 @@ const Card = ({
     setEditMessage(!editMessage);
   };
 
+  console.log(id)
+
   const handleDeleteCard = () => {
     onDeleteCard(id);
   };
@@ -39,7 +41,6 @@ const Card = ({
     setNewMessage("");
   };
 
-  console.log(likesCount);
   return (
     <section className="card">
       {!editMessage ? (
