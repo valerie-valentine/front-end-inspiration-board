@@ -6,9 +6,6 @@ import SelectedBoard from "./components/SelectedBoard";
 import NewBoardForm from "./components/NewBoardForm";
 import Cardlist from "./components/CardList";
 import NewCardForm from "./components/NewCardForm";
-// import { Routes, Route } from "react-router-dom";
-// import Home from "./components/Home";
-// import About from "./components/About";
 import axios from "axios";
 import {
   kBaseUrl,

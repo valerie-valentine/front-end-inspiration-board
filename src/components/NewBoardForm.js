@@ -44,6 +44,7 @@ const NewBoardForm = ({ onBoardSubmit, selectedBoardId }) => {
     onBoardSubmit(newBoard);
     setTitle("");
     setOwner("");
+    setIsBoardFormVisible(!isBoardFormVisible);
   };
 
   const isSelectedBoardVisible =
