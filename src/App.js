@@ -16,6 +16,7 @@ import {
   getAllCards,
   postCardApi,
   updateCardApi,
+  updateCardMessageApi,
   deleteCardApi,
   deleteBoardApi,
   convertFromApi,
@@ -70,6 +71,18 @@ function App() {
 
   const onUpdateLikes = (id, likeStatus) => {
     updateCardApi(id, likeStatus).then((updatedCard) => {
+      const cards = selectedCardsData.map((card) => {
+        if (card.id === id) {
+          return updatedCard;
+        }
+        return card;
+      });
+      setSelectedCardsData(cards);
+    });
+  };
+
+  const onUpdateCardMessage = (id, message) => {
+    updateCardMessageApi(id, message).then((updatedCard) => {
       const cards = selectedCardsData.map((card) => {
         if (card.id === id) {
           return updatedCard;
@@ -135,6 +148,7 @@ function App() {
                 onUpdateLikes={onUpdateLikes}
                 selectedCardsData={selectedCardsData}
                 onDeleteCard={onDeleteCard}
+                onUpdateCardMessage={onUpdateCardMessage}
               />
             )}
           </section>
