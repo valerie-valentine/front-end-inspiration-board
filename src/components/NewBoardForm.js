@@ -48,7 +48,9 @@ const NewBoardForm = ({ onBoardSubmit }) => {
     <div className="board-form">
       <h1 className="create-board-label">Create New Board</h1>
       {!isBoardFormVisible && (
-        <button onClick={handleVisibilityButton} className="create-button">Create New Board</button>
+        <button onClick={handleVisibilityButton} className="create-button">
+          Create New Board
+        </button>
       )}
       <form
         className={`visibility-button ${
@@ -108,7 +110,9 @@ const NewBoardForm = ({ onBoardSubmit }) => {
               </p>
             </div>
             <input type="submit" value="Add a Board"></input>
-            <button onClick={handleVisibilityButton}>Hide Create Board Form</button>
+            <button onClick={handleVisibilityButton}>
+              Hide Create Board Form
+            </button>
           </div>
         </section>
       </form>

@@ -47,6 +47,17 @@ const updateCardApi = (cardId, likeStatus) => {
     });
 };
 
+const updateCardMessageApi = (cardId, data) => {
+  return axios
+    .patch(`${kBaseUrl}/cards/${cardId}/message`, data)
+    .then((response) => {
+      return response.data.card;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
 const deleteCardApi = (cardId) => {
   return axios
     .delete(`${kBaseUrl}/cards/${cardId}`)
@@ -83,6 +94,7 @@ export {
   getAllCards,
   postCardApi,
   updateCardApi,
+  updateCardMessageApi,
   deleteCardApi,
   deleteBoardApi,
   convertFromApi,
