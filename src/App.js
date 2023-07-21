@@ -131,6 +131,7 @@ function App() {
               boardsData={boardsData}
               onBoardSelect={onBoardSelect}
               onDeleteBoard={onDeleteBoard}
+              setSelectedBoardId={setSelectedBoardId}
             />
           )}
           <section className="selected-board">
