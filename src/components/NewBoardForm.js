@@ -45,19 +45,20 @@ const NewBoardForm = ({ onBoardSubmit }) => {
   };
 
   return (
-    <div className="board-form">
-      <h1 className="create-board-label">Create New Board</h1>
-      {!isBoardFormVisible && (
+    <div className="create-board-button">
+      {/* <h1 className="create-board-label">Create New Board</h1> */}
+      {isBoardFormVisible && (
         <button onClick={handleVisibilityButton} className="create-button">Create New Board</button>
       )}
       <form
         className={`visibility-button ${
-          isBoardFormVisible ? "visible" : "hidden"
+          isBoardFormVisible ? "hidden" : "visible"
         }`}
         onSubmit={handleSubmit}
       >
-        <section>
-          <div>
+        <section className="board-form">
+          <div className="card-form-inputs">
+            <div className="title-owner">
             <label htmlFor="title">Title:</label>
             <input
               type="text"
@@ -80,6 +81,8 @@ const NewBoardForm = ({ onBoardSubmit }) => {
               required
             ></input>
             {owner.length > 39 && <p>Please limit characters to under 40.</p>}
+            </div>
+            <div className="image-selector">
             <label htmlFor="image">Choose an image:</label>
             <select name="images" id="images" onClick={handleImageSelect}>
               <option value="cat">Cat</option>
@@ -102,11 +105,12 @@ const NewBoardForm = ({ onBoardSubmit }) => {
                 ></input>
               </div>
             )}
-            <div>
-              <p>
-                Preview: {title} - {owner}
-              </p>
             </div>
+            {/* <div> */}
+              {/* <p> */}
+                {/* Preview: {title} - {owner} */}
+              {/* </p> */}
+            {/* </div> */}
             <input type="submit" value="Add a Board"></input>
             <button onClick={handleVisibilityButton}>Hide Create Board Form</button>
           </div>

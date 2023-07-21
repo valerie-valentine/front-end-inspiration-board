@@ -24,7 +24,7 @@ const SelectedBoard = ({ selectedBoard, clearSelectedBoard }) => {
 
   return (
     <section>
-      <li className="polaroid">
+      <li className="selected-polaroid">
         <img
           src={preSelected ? images[selectedBoard.image] : selectedBoard.image}
           alt="Animal"

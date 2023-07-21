@@ -13,8 +13,7 @@
     word-wrap: break-word;
     overflow: auto;
     min-height: 300px;
-    min-width: 200px;
-    max-width: 300px
+    width: 250px;
 }
 
 .card-button-container {

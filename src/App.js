@@ -104,7 +104,9 @@ function App() {
     <body>
       <div className="App">
         <main>
-          <h1 className="boards-label">Boards</h1>
+          <div className="header">
+            <h1 className="boards-label">Boards</h1>
+          </div>
           <section className="form-container">
             <NewBoardForm onBoardSubmit={onBoardSubmit} />
           </section>

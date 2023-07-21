@@ -1,8 +1,19 @@
 .board-list {
-    display: grid;
-    /* grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) ); */
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: space-between;
+    gap: 50px;
+    margin-bottom: 15rem;
+    margin-top: 13rem;
+
+    /* display: grid;
     grid-template-columns: repeat( auto-fit, minmax(min(100%/1, max(250px, 85%/4)), 1fr) );
     gap: 50px 50px;
     margin-left: 5rem;
-    margin-right: 5rem;;
+    margin-right: 5rem;
+    margin-bottom: 15rem; */
 }

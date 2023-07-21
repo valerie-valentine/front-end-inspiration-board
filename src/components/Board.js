@@ -45,10 +45,10 @@ const Board = ({
             {title} - {owner}
           </div>
         </figcaption>
-      </li>
-      <button className="reaction-button" onClick={handleDeleteCard}>
+        <button className="board-delete-button" onClick={handleDeleteCard}>
         🗑️
       </button>
+      </li>
     </section>
   );
 };
