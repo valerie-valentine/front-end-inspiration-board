@@ -113,12 +113,15 @@ function App() {
 
   const selectedBoard = getSelectedBoard(selectedBoardId);
 
+  const header =
+    selectedBoardId === null ? "Inspiration Boards" : "Selected Board";
+
   return (
     <body>
       <div className="App">
         <main>
           <div className="header">
-            <h1 className="boards-label">Inspiration Boards</h1>
+            <h1 className="boards-label">{header}</h1>
           </div>
           <section className="form-container">
             <NewBoardForm
