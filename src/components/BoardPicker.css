@@ -8,5 +8,10 @@
     align-content: space-between;
     gap: 50px;
     margin-bottom: 15rem;
-    margin-top: 13rem;
+    /* margin-top: 13rem; */
+}
+
+.boards-label {
+    font-size: 90px;
+    text-decoration: underline;
 }

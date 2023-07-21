@@ -11,12 +11,13 @@
     margin-bottom: 0;
 }
 
-label {
+/* label {
     padding-left: 20px;
     padding-right: 20px;
-}
+} */
 .board-form {
     font-size: 40px;
+    position: relative;
 }
 
 .title-owner {

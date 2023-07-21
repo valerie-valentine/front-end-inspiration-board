@@ -118,7 +118,7 @@ function App() {
       <div className="App">
         <main>
           <div className="header">
-            <h1 className="boards-label">{header}</h1>
+            <h1 className="title">{header}</h1>
           </div>
           <section className="form-container">
             <NewBoardForm
