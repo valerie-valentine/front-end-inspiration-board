@@ -42,6 +42,7 @@ const NewBoardForm = ({ onBoardSubmit, selectedBoardId }) => {
     onBoardSubmit(newBoard);
     setTitle("");
     setOwner("");
+    setIsBoardFormVisible(!isBoardFormVisible);
   };
 
   const isSelectedBoardVisible =
@@ -132,7 +133,7 @@ const NewBoardForm = ({ onBoardSubmit, selectedBoardId }) => {
             <input
               type="submit"
               value="Add a Board"
-              onClick={handleVisibilityButton}
+              // onClick={handleVisibilityButton}
               id="create-button"
             ></input>
           </div>

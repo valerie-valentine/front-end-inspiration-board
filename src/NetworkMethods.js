@@ -51,7 +51,7 @@ const updateCardMessageApi = (cardId, data) => {
   return axios
     .patch(`${kBaseUrl}/cards/${cardId}/message`, data)
     .then((response) => {
-      return response.data.card;
+      return convertCardFromApi(response.data.card);
     })
     .catch((error) => {
       console.log(error);
