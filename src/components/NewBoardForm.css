@@ -41,11 +41,14 @@ label {
     border-radius: 7px;
     font-size: 20px;
     background-color: #f7e6fa;
+    margin-left: 15px;
+    margin-right: 15px;
 
 }
 .image-form-field {
     border-radius: 7px;
     font-size: 18px;
+    width: 200px;
     background-color: #f7e6fa;
 }
 
@@ -68,7 +71,7 @@ label {
     margin-top: -30px;
 }
 
-.create-button:hover{
+#create-button:hover{
     box-shadow: 0 0 10px 0 white inset, 0 0 20px 2px white;
     border: 3px solid white;
     transform: scale(1.1);

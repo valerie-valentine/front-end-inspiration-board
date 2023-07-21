@@ -68,7 +68,7 @@ const NewBoardForm = ({ onBoardSubmit, selectedBoardId }) => {
         <section className="board-form">
           <div className="card-form-inputs">
             <div className="title-owner">
-              <label htmlFor="title">Title:</label>
+              {/* <label htmlFor="title">Title:</label> */}
               <input
                 type="text"
                 maxLength={40}
@@ -78,9 +78,10 @@ const NewBoardForm = ({ onBoardSubmit, selectedBoardId }) => {
                 value={title}
                 required
                 className="form-field"
+                placeholder="Enter Board Title"
               ></input>
               {title.length > 39 && <p>Please limit characters to under 40.</p>}
-              <label htmlFor="owner">Owner:</label>
+              {/* <label htmlFor="owner">Owner:</label> */}
               <input
                 type="text"
                 maxLength={40}
@@ -90,6 +91,7 @@ const NewBoardForm = ({ onBoardSubmit, selectedBoardId }) => {
                 value={owner}
                 required
                 className="form-field"
+                placeholder="Enter Your Name"
               ></input>
               {owner.length > 39 && <p>Please limit characters to under 40.</p>}
             </div>
@@ -131,6 +133,7 @@ const NewBoardForm = ({ onBoardSubmit, selectedBoardId }) => {
               type="submit"
               value="Add a Board"
               onClick={handleVisibilityButton}
+              id="create-button"
             ></input>
           </div>
         </section>

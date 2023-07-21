@@ -26,7 +26,7 @@ const NewCardForm = ({ createNewCard }) => {
       <form onSubmit={handleSubmit} className="new-card-form">
       <h1 className="create-card-label">Create New Card</h1>
         <section>
-          <label htmlFor="message" className="message-label">Message:</label>
+          {/* <label htmlFor="message" className="message-label">Message:</label> */}
           <input
             type="text"
             id="message"
@@ -40,7 +40,7 @@ const NewCardForm = ({ createNewCard }) => {
           ></input>
           {message.length > 39 && <p>Please limit characters to under 40.</p>}
           <div>
-            <input type="submit" value="Create new Card" className="create-button"></input>
+            <input type="submit" value="Create new Card" id="create-button"></input>
           </div>
         </section>
       </form>

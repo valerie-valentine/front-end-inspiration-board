@@ -54,7 +54,8 @@ const Card = ({
             onChange={handleMessageChange}
             value={newMessage}
             required
-            className="message-field"
+            className="edit-message-field"
+            placeholder="Edit Card Message"
           ></input>
           <button type="submit" value="Submit" className="edit-message-button">
             Send
