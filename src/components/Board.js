@@ -22,7 +22,7 @@ const Board = ({
   onBoardSelect,
   onDeleteBoard,
 }) => {
-  
+
   const preSelected = images.hasOwnProperty(image);
 
   const handleBoardSelect = () => {

@@ -6,7 +6,7 @@ const NewBoardForm = ({ onBoardSubmit, selectedBoardId }) => {
   const [title, setTitle] = useState("");
   const [owner, setOwner] = useState("");
   const [isBoardFormVisible, setIsBoardFormVisible] = useState(false);
-  const [selectedImage, setSelectedImage] = useState("");
+  const [selectedImage, setSelectedImage] = useState("dog");
   const [customImage, setCustomImage] = useState("");
 
   const handleTitleChange = (event) => {
@@ -103,7 +103,7 @@ const NewBoardForm = ({ onBoardSubmit, selectedBoardId }) => {
               <select
                 name="images"
                 id="images"
-                onClick={handleImageSelect}
+                onChange={handleImageSelect}
                 className="image-form-field"
               >
                 <option value="cat">Cat</option>
