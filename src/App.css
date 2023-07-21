@@ -28,6 +28,7 @@ body {
 }
 
 .form-container {
+  position: relative;
   height: 50px;
 }
 
@@ -40,8 +41,15 @@ body {
   margin: 0 auto;
 }
 
-/* .boards-label {
-  font-family: 'Amatic SC', cursive;
-  font-size: 110px;
-} */
+.card-list {
+  position: relative;
+}
 
+footer {
+  width: 100%;
+  background: linear-gradient(180deg, transparent, #fcd4dd, #edc1f5);
+  height: 150px;
+  font-size: 80px;
+  /* margin-bottom: -65px; */
+  margin-top: -110px;
+}
