@@ -7,11 +7,11 @@
     border-radius: 7px;
     list-style-type: none;
     margin-top: 40px;
-    position: relative;
+    /* position: relative; */
+    /* bottom: 150px; */
 }
 
 .selected-polaroid .dog-image {
-    /* height: 10rem; */
     width: 80%;
     padding: 2vh;
     border-radius: 7px;
@@ -26,8 +26,6 @@ figcaption {
 }
 
 .selected-board-label {
-    font-family: 'Amatic SC', cursive;
-    /* font-size: 2rem; */
     font-size: 35px;
 }
 

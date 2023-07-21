@@ -1,16 +1,12 @@
 .card {
     background: linear-gradient(45deg, aqua, #edc1f5, white);
-    /* background: linear-gradient(180deg, #edc1f5, #fcd4dd); */
     padding: 2rem;
-    /* border: 10px; */
     border:solid;
     border-color: white;
     border-radius: 7px;
-    /* box-shadow: 5px 7px 4px rgba(0,0,0,0.4); */
     filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.4));
     font-size: 40px;
     position: relative;
-    /* height: 300px; */
     word-wrap: break-word;
     overflow: auto;
     min-height: 300px;
@@ -21,7 +17,7 @@
     display: flex;
     position: absolute;
     justify-content: center;
-    gap: 45px;
+    gap: 30px;
     bottom: 40px;
     left: 50%;
     transform: translateX(-50%);

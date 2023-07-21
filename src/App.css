@@ -8,28 +8,32 @@ body {
   font-family: 'Amatic SC', cursive;
   position: relative;
   margin-top: -70px;
+  height: 100%;
   /* overscroll-behavior: none; */
 }
 
 .App {
   text-align: center;
+
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -150px;
 }
 
 .header { 
   position: sticky;
-  /* margin-top: calc(3/4 * 1in); */
   font-size: 20px;
   width: 100%;
   background: linear-gradient(180deg, #edc1f5, #fcd4dd, transparent);
   height: 350px;
   font-size: 80px;
-  /* margin-bottom: -65px; */
   margin-top: -110px;
 }
 
 .form-container {
   position: relative;
-  height: 50px;
+  height: 100%;
 }
 
 .selected-board {
@@ -50,6 +54,5 @@ footer {
   background: linear-gradient(180deg, transparent, #fcd4dd, #edc1f5);
   height: 150px;
   font-size: 80px;
-  /* margin-bottom: -65px; */
   margin-top: -110px;
 }

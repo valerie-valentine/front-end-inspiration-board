@@ -161,8 +161,9 @@ function App() {
             )}
           </section>
         </main>
+        <div className="push"></div>
       </div>
-      <footer></footer>
+      <footer className="footer"></footer>
     </body>
   );
 }

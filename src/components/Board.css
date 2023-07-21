@@ -6,7 +6,6 @@
     list-style-type: none;
     cursor: pointer;
     transition: all .2s ease-in-out;
-    /* position: relative; */
     max-width: 350px;
 }
 
@@ -15,7 +14,6 @@
 }
 
 .polaroid .dog-image {
-    /* height: 10rem; */
     width: 90%;
     height: auto;
     padding: 2vh;
@@ -30,7 +28,6 @@ figcaption {
 
 .board-label {
     font-family: 'Amatic SC', cursive;
-    /* font-size: 2rem; */
     font-size: 35px;
 }
 

@@ -30,6 +30,8 @@ const NewBoardForm = ({ onBoardSubmit, selectedBoardId }) => {
     setSelectedImage(event.target.value);
   };
 
+  console.log(selectedImage)
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const newBoard = {
@@ -132,7 +134,7 @@ const NewBoardForm = ({ onBoardSubmit, selectedBoardId }) => {
             <input
               type="submit"
               value="Add a Board"
-              onClick={handleVisibilityButton}
+              // onClick={handleVisibilityButton}
               id="create-button"
             ></input>
           </div>
