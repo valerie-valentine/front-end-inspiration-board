@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/css/main.ee612233.css",
+    "main.js": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/js/main.ad7f2ff6.js",
+    "static/js/651.ed635249.chunk.js": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/js/651.ed635249.chunk.js",
+    "static/media/sailor-moon-anime.gif": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/media/sailor-moon-anime.33e3aebcfc67004f9348.gif",
+    "static/media/red-panda.jpg": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/media/red-panda.4be497a24cf6ba7b5034.jpg",
+    "static/media/dog.jpg": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/media/dog.062acc640fa5a6a5d3db.jpg",
+    "static/media/cat.avif": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/media/cat.31058aaafb5ca336bf71.avif",
+    "static/media/sloth.avif": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/media/sloth.078fdff9a13083610bc1.avif",
+    "index.html": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/index.html",
+    "main.ee612233.css.map": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/css/main.ee612233.css.map",
+    "main.ad7f2ff6.js.map": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/js/main.ad7f2ff6.js.map",
+    "651.ed635249.chunk.js.map": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/js/651.ed635249.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ee612233.css",
+    "static/js/main.ad7f2ff6.js"
+  ]
+}
