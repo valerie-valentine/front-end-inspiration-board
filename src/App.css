@@ -15,15 +15,16 @@ body {
   text-align: center;
 }
 
-.header {
+.header { 
   position: sticky;
   /* margin-top: calc(3/4 * 1in); */
-  font-size: 90px;
+  font-size: 20px;
   width: 100%;
   background: linear-gradient(180deg, #edc1f5, #fcd4dd, transparent);
   height: 350px;
   font-size: 80px;
-  margin-bottom: -65px;
+  /* margin-bottom: -65px; */
+  margin-top: -110px;
 }
 
 .form-container {
@@ -43,3 +44,4 @@ body {
   font-family: 'Amatic SC', cursive;
   font-size: 110px;
 } */
+
