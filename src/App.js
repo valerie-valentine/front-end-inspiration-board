@@ -112,7 +112,10 @@ function App() {
             alt="sparkles"/>
           </div> */}
           <section className="form-container">
-            <NewBoardForm onBoardSubmit={onBoardSubmit} />
+            <NewBoardForm
+              onBoardSubmit={onBoardSubmit}
+              selectedBoardId={selectedBoardId}
+            />
           </section>
           {selectedBoardId === null && (
             <BoardPicker
