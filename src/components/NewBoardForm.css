@@ -16,7 +16,7 @@ label {
     padding-right: 20px;
 }
 .board-form {
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .title-owner {
@@ -26,13 +26,27 @@ label {
 .image-selector {
     margin-bottom: 25px;
 }
-.create-board-label {
-    /* font-family: 'Amatic SC', cursive; */
+/* .create-board-label {
+    font-family: 'Amatic SC', cursive;
     font-size: 60px;
-}
+} */
 
-.card-form-inputs {
+/* .card-form-inputs {
     
+} */
+
+.form-field {
+    width: 250px;
+    height: 30px;
+    border-radius: 7px;
+    font-size: 20px;
+    background-color: #f7e6fa;
+
+}
+.image-form-field {
+    border-radius: 7px;
+    font-size: 18px;
+    background-color: #f7e6fa;
 }
 
 .create-button {
@@ -41,19 +55,21 @@ label {
     height: 55px;
     height: auto;
     font-size: 20px;
-    background-color: rgb(219, 62, 243);
+    background-color: #edc1f5;
     border: 3px solid;
     border-radius: 50px;
+    border-color: #fcd4dd;
     padding: 5px;
     -webkit-transition: all .15s ease-in-out;
     transition: all .15s ease-in-out;
     filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.4));
-    color: aquamarine;
+    color: black;
     transition: all .2s ease-in-out;
+    margin-top: -30px;
 }
 
 .create-button:hover{
-    box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
-    border: 3px solid aquamarine;
+    box-shadow: 0 0 10px 0 white inset, 0 0 20px 2px white;
+    border: 3px solid white;
     transform: scale(1.1);
 }

@@ -68,6 +68,7 @@ const NewBoardForm = ({ onBoardSubmit }) => {
               onChange={handleTitleChange}
               value={title}
               required
+              className="form-field"
             ></input>
             {title.length > 39 && <p>Please limit characters to under 40.</p>}
             <label htmlFor="owner">Owner:</label>
@@ -79,12 +80,13 @@ const NewBoardForm = ({ onBoardSubmit }) => {
               onChange={handleOwnerChange}
               value={owner}
               required
+              className="form-field"
             ></input>
             {owner.length > 39 && <p>Please limit characters to under 40.</p>}
             </div>
             <div className="image-selector">
             <label htmlFor="image">Choose an image:</label>
-            <select name="images" id="images" onClick={handleImageSelect}>
+            <select name="images" id="images" onClick={handleImageSelect} className="image-form-field">
               <option value="cat">Cat</option>
               <option value="dog">Dog</option>
               <option value="sloth">Sloth</option>

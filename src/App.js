@@ -105,8 +105,12 @@ function App() {
       <div className="App">
         <main>
           <div className="header">
-            <h1 className="boards-label">Boards</h1>
+            <h1 className="boards-label">Inspiration Boards</h1>
           </div>
+          {/* <div>
+            <img src="https://t3.ftcdn.net/jpg/03/91/96/18/360_F_391961840_7k8ity7jKxgWOS81Z9ZA9j6R34KaWbbU.jpg"
+            alt="sparkles"/>
+          </div> */}
           <section className="form-container">
             <NewBoardForm onBoardSubmit={onBoardSubmit} />
           </section>

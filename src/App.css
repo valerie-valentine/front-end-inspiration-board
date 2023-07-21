@@ -1,3 +1,4 @@
+
 body {
   background-image: url('https://cdn.pixabay.com/photo/2012/12/24/08/39/background-72250_1280.jpg');
   background-repeat: no-repeat;
@@ -6,9 +7,9 @@ body {
   background-size: 100% 100%;
   font-family: 'Amatic SC', cursive;
   position: relative;
+  margin-top: -70px;
   /* overscroll-behavior: none; */
 }
-
 
 .App {
   text-align: center;
@@ -17,9 +18,12 @@ body {
 .header {
   position: sticky;
   /* margin-top: calc(3/4 * 1in); */
+  font-size: 90px;
   width: 100%;
-  background: linear-gradient(180deg, aqua, hotpink, transparent);
-  height: 200px;
+  background: linear-gradient(180deg, #edc1f5, #fcd4dd, transparent);
+  height: 350px;
+  font-size: 80px;
+  margin-bottom: -65px;
 }
 
 .form-container {
@@ -35,7 +39,7 @@ body {
   margin: 0 auto;
 }
 
-.boards-label {
+/* .boards-label {
   font-family: 'Amatic SC', cursive;
-  font-size: 90px;
-}
+  font-size: 110px;
+} */
