@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/css/main.ee612233.css",
-    "main.js": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/js/main.ad7f2ff6.js",
-    "static/js/651.ed635249.chunk.js": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/js/651.ed635249.chunk.js",
-    "static/media/sailor-moon-anime.gif": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/media/sailor-moon-anime.33e3aebcfc67004f9348.gif",
-    "static/media/red-panda.jpg": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/media/red-panda.4be497a24cf6ba7b5034.jpg",
-    "static/media/dog.jpg": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/media/dog.062acc640fa5a6a5d3db.jpg",
-    "static/media/cat.avif": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/media/cat.31058aaafb5ca336bf71.avif",
-    "static/media/sloth.avif": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/media/sloth.078fdff9a13083610bc1.avif",
-    "index.html": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/index.html",
-    "main.ee612233.css.map": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/css/main.ee612233.css.map",
-    "main.ad7f2ff6.js.map": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/js/main.ad7f2ff6.js.map",
-    "651.ed635249.chunk.js.map": "/WhitShake/front-end-inspiration-board/tree/Deployed-version/static/js/651.ed635249.chunk.js.map"
+    "main.css": "/front-end-inspiration-board%20/static/css/main.ee612233.css",
+    "main.js": "/front-end-inspiration-board%20/static/js/main.5e370517.js",
+    "static/js/787.7ab17afa.chunk.js": "/front-end-inspiration-board%20/static/js/787.7ab17afa.chunk.js",
+    "static/media/sailor-moon-anime.gif": "/front-end-inspiration-board%20/static/media/sailor-moon-anime.33e3aebcfc67004f9348.gif",
+    "static/media/red-panda.jpg": "/front-end-inspiration-board%20/static/media/red-panda.4be497a24cf6ba7b5034.jpg",
+    "static/media/dog.jpg": "/front-end-inspiration-board%20/static/media/dog.062acc640fa5a6a5d3db.jpg",
+    "static/media/cat.avif": "/front-end-inspiration-board%20/static/media/cat.31058aaafb5ca336bf71.avif",
+    "static/media/sloth.avif": "/front-end-inspiration-board%20/static/media/sloth.078fdff9a13083610bc1.avif",
+    "index.html": "/front-end-inspiration-board%20/index.html",
+    "main.ee612233.css.map": "/front-end-inspiration-board%20/static/css/main.ee612233.css.map",
+    "main.5e370517.js.map": "/front-end-inspiration-board%20/static/js/main.5e370517.js.map",
+    "787.7ab17afa.chunk.js.map": "/front-end-inspiration-board%20/static/js/787.7ab17afa.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ee612233.css",
-    "static/js/main.ad7f2ff6.js"
+    "static/js/main.5e370517.js"
   ]
 }
