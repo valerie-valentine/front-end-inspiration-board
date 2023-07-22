@@ -1,5 +1,5 @@
 {
-  "homepage": "https://valerie-valentine.github.io/front-end-inspiration-board ",
+  "homepage": "https://valerie-valentine.github.io/front-end-inspiration-board",
   "name": "front-end-inspiration-board",
   "version": "0.1.0",
   "private": true,
@@ -39,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
