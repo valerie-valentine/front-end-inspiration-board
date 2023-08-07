@@ -11,7 +11,7 @@ const BoardPicker = ({
 }) => {
   return (
     <div>
-      <h1 className="boards-label">Boards</h1>
+      {/* <h1 className="boards-label">Boards</h1> */}
       <section className="board-list">
         {boardsData.map((board) => {
           return (

@@ -22,7 +22,7 @@ body {
 }
 
 .header { 
-  position: sticky;
+  /* position: sticky; */
   font-size: 20px;
   width: 100%;
   background: linear-gradient(180deg, #edc1f5, #fcd4dd, transparent);
@@ -58,10 +58,10 @@ footer {
 }
 
 .title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 120px;
+  /* position: absolute; */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  margin-top: 60px;
   font-size: 7.5rem;
   /* text-decoration: underline; */
 }
