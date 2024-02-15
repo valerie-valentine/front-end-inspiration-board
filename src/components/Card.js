@@ -13,6 +13,8 @@ const Card = ({
   const [editMessage, setEditMessage] = useState(false);
   const [newMessage, setNewMessage] = useState("");
 
+  /*The next three functions pass the component properties to methods
+  brought in front from the parent component*/
   const handleLikeClick = (isLike) => {
     onUpdateLikes(id, isLike);
   };
@@ -20,8 +22,6 @@ const Card = ({
   const handleEditMessage = () => {
     setEditMessage(!editMessage);
   };
-
-  console.log(id)
 
   const handleDeleteCard = () => {
     onDeleteCard(id);
@@ -31,6 +31,7 @@ const Card = ({
     setNewMessage(event.target.value);
   };
 
+  /*These functions handle the form submission & update the properties appropriately*/
   const handleMessageSubmit = (event) => {
     event.preventDefault();
     const newMessageText = {
