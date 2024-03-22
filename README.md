@@ -1,3 +1,14 @@
+
+# Inspiration Board
+
+Inspiration Board is a feature-rich virtual vision board using React, Python, and Flask. The web application allows users to create
+boards, add notes, and upload custom images. This repo holds the front-end code of the full-stack application. The backend repository can be found here: https://github.com/valerie-valentine/back-end-inspiration-board
+
+Please check out the demo application here: https://valerie-valentine.github.io/front-end-inspiration-board/
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
